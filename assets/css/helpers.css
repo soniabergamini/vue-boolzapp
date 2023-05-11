@@ -63,7 +63,7 @@
 .pad2rem        {padding: 2rem;}
 .pad1rem        {padding: 1rem;}
 .pad05em        {padding: .5em;}
-.marginBottom8  {margin-bottom: 8rem;}
+.marginTopBot   {margin: .2rem 0;}
 .marginLat05em  {margin: 0 .5em;}
 .border         {border: 1px solid black;}
 .borderRadius   {border-radius: 1.5rem;}

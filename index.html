@@ -25,7 +25,7 @@
                 <!-- All Chat Section -->
                 <div id="allChatSec" class="border dFlex flexColumn">
                     <!-- User profile and icons -->
-                    <div id="userProfileSec" class="bgLightGrey dFlex spaceBtw alignCtr">
+                    <div id="userProfileSec" class="bgLightGrey dFlex spaceBtw alignCtr pad05em">
                         <div class="dFlex alignCtr gap1em">
                             <img :src="userProfile.avatar" width="45" :alt="userProfile.name" class="borderRadius50">
                             <span>{{userProfile.name}}</span>
@@ -47,15 +47,26 @@
                         </div>
                     </div>
                     <!-- Search Bar -->
-                    <div id="searchBarSec" class="bgLightGrey border dFlex alignCtr pad05em">
+                    <div id="searchBarSec" class="bgLightGrey dFlex alignCtr pad05em">
                         <form class="wid100Perc">
                           <input class="wid100Perc txtGrey" type="search" placeholder="Cerca o inizia una nuova chat">
                           <!-- <button type="submit">Search</button> -->
                         </form>
                     </div>
                     <!-- Single conversations -->
-                    <div id="singleChatSec" class="bgWhite border fGrow1">
-                        Single Conversations
+                    <div id="singleChatSec" class="bgWhite fGrow1">
+                        <div v-for="(friend, i) in contacts" class="dFlex alignCtr spaceBtw pad05em borderBottom">
+                            <div class="dFlex alignCtr gap1em">
+                                <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
+                                <p>
+                                    <span>{{friend.name}}</span>
+                                    <small class="txtGrey displayBlock marginTopBot">Ultimo messaggio inviato</small>
+                                </p>
+                            </div>
+                            <div class="chatTime">
+                                <small class="txtGrey">12:00</small>
+                            </div>
+                        </div>
                     </div>
                 </div>    
                 <!-- Active Chat Section -->

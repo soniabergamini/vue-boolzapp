@@ -53,7 +53,7 @@ createApp({
                     ],
                 },
                 {   name: 'Claudia',
-                    avatar: './assets/img/avatar_5.jpg',
+                    avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {   date: '10/01/2020 15:30:55',            message: 'Ciao Claudia, hai novità?',                          status: 'sent'     },
@@ -67,6 +67,15 @@ createApp({
                     messages: [
                         {   date: '10/01/2020 15:30:55',            message: 'Fai gli auguri a Martina che è il suo compleanno!',  status: 'sent'     },
                         {   date: '10/01/2020 15:50:00',            message: 'Grazie per avermelo ricordato, le scrivo subito!',   status: 'received' }
+                    ],
+                },
+                {   name: 'Betta',
+                    avatar: './assets/img/avatar_6.jpg',
+                    visible: true,
+                    messages: [
+                        {   date: '10/01/2020 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received' },
+                        {   date: '10/01/2020 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent'     },
+                        {   date: '10/01/2020 15:51:00',            message: 'Ok Baby!!',                                          status: 'received' }
                     ],
                 },
                 {   name: 'Davide',
