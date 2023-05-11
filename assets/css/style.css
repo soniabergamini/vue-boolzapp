@@ -26,7 +26,7 @@ img {
 
 /******** GENERAL STYLE ********/
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     background: rgb(220,219,209);
     background: linear-gradient(0deg, rgba(220,219,209,1) 80%, rgba(0,150,136,1) 80%);
 }
@@ -36,30 +36,36 @@ main {
     max-width: 93.75rem;
     min-width: 38rem;
     width: 80%;
-    min-height: 100vh;
     margin: 0 auto;
 }
 
 .container {
     height: 80vh;
-    width: 100%;
 }
 
 /* All Chat Section Style */
 #allChatSec {
-    width: 30%;
+    width: 35%;
     min-width: 14.375rem;
 }
 
-#allChatSec > div:nth-child(2) {
+#userProfileSec {
+    height: 10%;
+}
+
+#userProfileSec button {
+    border: transparent;
+}
+
+#ctaNotifSec {
     height: 12%;
 }
 
-#allChatSec > div:nth-child(3) {
+#searchBarSec {
     height: 6%;
 }
 
-#allChatSec > div:last-child {
+#singleChatSec {
     overflow-y: scroll;
     height: 52%;
 }
@@ -69,13 +75,12 @@ main {
     background-image: url(../img/mine.jpg);
 }
 
-#activeChatSec > div:first-child,
-#activeChatSec > div:last-child,
-#allChatSec > div:first-child {
+#topBannerActiveChat,
+#sendMessSec {
     height: 10%;
 }
 
-#activeChatSec > div:nth-child(2) {
+#chatMessagesSec {
     height: 80%;
     overflow-y: scroll;
 }

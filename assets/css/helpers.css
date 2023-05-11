@@ -39,7 +39,7 @@
 /********************************************
         GENERIC UTILITIES 
  *******************************************/
-.cursor         {cursor: pointer;}
+.cPointer       {cursor: pointer;}
 .listStyleNone  {list-style-type: none;}
 .visHidden      {visibility: hidden;}
 .boxShadow      {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
@@ -62,7 +62,7 @@
 .pad2rem        {padding: 2rem;}
 .pad1rem        {padding: 1rem;}
 .marginBottom8  {margin-bottom: 8rem;}
-.marginLat05em  {margin: 0.5em 0;}
+.marginLat05em  {margin: 0 .5em;}
 .border         {border: 1px solid black;}
 .borderRadius   {border-radius: 1.5rem;}
 .borderRadius3  {border-radius: 3rem;}
@@ -80,6 +80,7 @@
 .boxShadowHov:hover     {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
 .txtUnderHov:hover      {text-decoration: underline;}
 .changeColGreyHov:hover {color: var(--grey);}
+.changeColTealHov:hover {color: var(--teal);}
 .txtUnderUpperHov:hover {
     text-decoration: underline;
     text-transform: uppercase;

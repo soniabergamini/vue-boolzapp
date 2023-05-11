@@ -3,6 +3,10 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            userProfile: {
+                name: 'Sofia',
+                avatar: './assets/img/avatar_io.jpg'
+            },
             // Objects Array
             contacts: [
                 {   name: 'Michele',         

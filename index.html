@@ -8,6 +8,8 @@
     <!-- ----space to insert GFont links---- -->
      <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/helpers.css">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -18,33 +20,47 @@
 <body>
     <!-- Vue JS App -->
     <div id="app">
-        <main class="dFlex alignCtr justyCtr">
-            <section class="container border dFlex">
+        <main class="dFlex alignCtr justyCtr vh100">
+            <section class="container border dFlex wid100Perc">
                 <!-- All Chat Section -->
-                <div class="border dFlex flexColumn" id="allChatSec">
-                    <div class="bgLightGrey">
-                        Profile
+                <div id="allChatSec" class="border dFlex flexColumn">
+                    <!-- User profile and icons -->
+                    <div id="userProfileSec" class="bgLightGrey dFlex spaceBtw alignCtr pad1rem">
+                        <div class="dFlex alignCtr gap1em">
+                            <img :src="userProfile.avatar" width="45" :alt="userProfile.name" class="borderRadius50">
+                            <span>{{userProfile.name}}</span>
+                        </div>
+                        <div>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-circle-notch txtGrey"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-message txtGrey"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-ellipsis-vertical txtGrey"></i></button>
+                        </div>
                     </div>
-                    <div class="bgLightBlue border">
+                    <!-- CTA Boolzapp notifications -->
+                    <div id="ctaNotifSec" class="bgLightBlue border">
                         CTA Whatsapp Notifications
                     </div>
-                    <div class="bgLightGrey border">
+                    <!-- Search Bar -->
+                    <div id="searchBarSec" class="bgLightGrey border">
                         Search Bar
                     </div>
-                    <div class="bgWhite border fGrow1">
+                    <!-- Single conversations -->
+                    <div id="singleChatSec" class="bgWhite border fGrow1">
                         Single Conversations
                     </div>
                 </div>    
                 <!-- Active Chat Section -->
-                <div class="border fGrow1 dFlex flexColumn" id="activeChatSec">
-                    <!-- Top Banner -->
-                    <div class="bgLightGrey">
+                <div id="activeChatSec" class="border fGrow1 dFlex flexColumn">
+                    <!-- Top Banner: Chat friend and buttons -->
+                    <div id="topBannerActiveChat" class="bgLightGrey">
                         User and buttons
                     </div>
-                    <div class="fGrow1">
+                    <!-- Chat with messages -->
+                    <div id="chatMessagesSec" class="fGrow1">
                         Chat                        
                     </div>
-                    <div class="bgLightGrey">
+                    <!-- Send new message -->
+                    <div id="sendMessSec" class="bgLightGrey">
                         Send New Message
                     </div>
                 </div>   
