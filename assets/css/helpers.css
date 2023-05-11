@@ -1,0 +1,84 @@
+/********************************************
+        FLEX & GAP CONTAINERS HELPERS 
+********************************************/
+.flex           {display: flex;}
+.flexColumn     {flex-direction: column;}
+.flexWrap       {flex-wrap: wrap;}
+.flexWrapRev    {flex-wrap: wrap-reverse;}
+.directRR       {flex-direction: row-reverse;}
+.spaceBtw       {justify-content: space-between;}
+.justyCtr       {justify-content: center;}
+.spaceARN       {justify-content: space-around;}
+.alignCtr       {align-items: center;}
+.alignStart     {align-items: flex-start;}
+.alignEnd       {align-items: flex-end;}
+.gap1em         {gap: 1em;}
+
+/********************************************
+    POSITION, TRANSITION & DISPLAY HELPERS 
+ *******************************************/
+.secTrans       {transition: 0.8s;}
+.posFixed       {position: fixed;}
+.posRelative    {position: relative;}
+.posAbsolute    {position: absolute;}
+.displayBlock   {display: block;}
+
+/********************************************
+        UTILITY | Customize text  
+ *******************************************/
+.txtWhite       {color: white;}
+.txtGrey        {color: var(--lightgreyTXT);}
+.txtBlack       {color: black;}
+.txtSmall       {font-size: small;}
+.txtUnderline   {text-decoration: underline;}
+.txtItalic      {font-style: italic;}
+.txtAlignCtr    {text-align: center;}
+.txtVertAlignMid{vertical-align: middle;}
+
+/********************************************
+        GENERIC UTILITIES 
+ *******************************************/
+.cursor         {cursor: pointer;}
+.listStyleNone  {list-style-type: none;}
+.visHidden      {visibility: hidden;}
+.boxShadow      {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
+.bgBlue         {background-color: var(--blueBG);}
+.bgDarkblue     {background-color: var(--darkblueBG);}
+.bgGrey         {background-color: var(--greyBG);}
+.bgWhite        {background-color: white;}
+
+/********************************************
+    UTILITY | Width, Padding, Border, Margin 
+ *******************************************/
+.vw100          {width: 100vw;}
+.vh100          {height: 100vh;}
+.wid100Perc     {width: 100%;}
+.wid80Perc      {width: 80%;}
+.wid60Perc      {width: 60%;}
+.wid50Perc      {width: 50%;}
+.wid30Perc      {width: 30%;}
+.pad2rem        {padding: 2rem;}
+.pad1rem        {padding: 1rem;}
+.marginBottom8  {margin-bottom: 8rem;}
+.marginLat05em  {margin: 0.5em 0;}
+.border         {border: 1px solid black;}
+.borderRadius   {border-radius: 1.5rem;}
+.borderRadius3  {border-radius: 3rem;}
+.borderRadius50 {border-radius: 50%;}
+.borderBottom   {border-bottom: 0.5px solid grey;}
+.boxCtr         {
+    max-width: 57.5rem; /* 920px su 1536px */
+    margin: 0 auto;
+}
+
+/********************************************
+        UTILITY | hover 
+ *******************************************/
+.fontBigHov:hover       {font-size: 18px;}
+.boxShadowHov:hover     {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
+.txtUnderHov:hover      {text-decoration: underline;}
+.changeColBlueHov:hover {color: var(--blueBG);}
+.txtUnderUpperHov:hover {
+    text-decoration: underline;
+    text-transform: uppercase;
+}

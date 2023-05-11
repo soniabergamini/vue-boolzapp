@@ -1,0 +1,27 @@
+/******** GENERAL STYLE ********/
+:root {
+    --blueBG: #141922;
+    --darkblueBG: #070B12;
+    --greyBG: #282828;
+    --lightgreyTXT: #7E7F84;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/******** HEADER STYLE ********/
+/******** MAIN STYLE ********/
+/******** FOOTER STYLE ********/
