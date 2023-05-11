@@ -1,4 +1,4 @@
-/******** GENERAL STYLE ********/
+/******** ROOT STYLE ********/
 :root {
     --blueBG: #141922;
     --darkblueBG: #070B12;
@@ -6,10 +6,7 @@
     --lightgreyTXT: #7E7F84;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
+/******** RESET STYLE ********/
 *,
 ::before,
 ::after {
@@ -22,6 +19,20 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
+/******** GENERAL STYLE ********/
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    background: rgb(220,219,209);
+    background: linear-gradient(0deg, rgba(220,219,209,1) 80%, rgba(0,150,136,1) 80%);
+}
+
 /******** HEADER STYLE ********/
+
 /******** MAIN STYLE ********/
+
 /******** FOOTER STYLE ********/
