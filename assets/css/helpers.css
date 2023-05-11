@@ -78,12 +78,13 @@
 /********************************************
         UTILITY | hover 
  *******************************************/
-.fontBigHov:hover       {font-size: 18px;}
-.boxShadowHov:hover     {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
-.txtUnderHov:hover      {text-decoration: underline;}
-.changeColGreyHov:hover {color: var(--grey);}
-.changeColTealHov:hover {color: var(--teal);}
-.txtUnderUpperHov:hover {
+.fontBigHov:hover        {font-size: 18px;}
+.boxShadowHov:hover      {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
+.txtUnderHov:hover       {text-decoration: underline;}
+.changeColGreyHov:hover  {color: var(--grey);}
+.changeColTealHov:hover  {color: var(--teal);}
+.changeBackTealHov:hover {background-color: var(--teal); color: white;}
+.txtUnderUpperHov:hover  {
     text-decoration: underline;
     text-transform: uppercase;
 }
