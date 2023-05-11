@@ -25,7 +25,7 @@
                 <!-- All Chat Section -->
                 <div id="allChatSec" class="border dFlex flexColumn">
                     <!-- User profile and icons -->
-                    <div id="userProfileSec" class="bgLightGrey dFlex spaceBtw alignCtr pad05em">
+                    <div id="userProfileSec" class="bgGrey dFlex spaceBtw alignCtr pad05em">
                         <div class="dFlex alignCtr gap1em">
                             <img :src="userProfile.avatar" width="45" :alt="userProfile.name" class="borderRadius50">
                             <span>{{userProfile.name}}</span>
@@ -55,7 +55,7 @@
                     </div>
                     <!-- Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
-                        <div v-for="(friend, i) in contacts" class="dFlex alignCtr spaceBtw pad05em borderBottom">
+                        <div v-for="(friend, i) in contacts" class="dFlex alignCtr spaceBtw pad05em borderBottom" :class="currentChat === i ? 'activeChat' : null">
                             <div class="dFlex alignCtr gap1em">
                                 <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                 <p>
@@ -72,7 +72,7 @@
                 <!-- Active Chat Section -->
                 <div id="activeChatSec" class="border fGrow1 dFlex flexColumn">
                     <!-- Top Banner: Chat friend and buttons -->
-                    <div id="topBannerActiveChat" class="bgLightGrey border">
+                    <div id="topBannerActiveChat" class="bgGrey border">
                         User and buttons
                     </div>
                     <!-- Chat with messages -->
@@ -80,7 +80,7 @@
                         Chat                        
                     </div>
                     <!-- Send new message -->
-                    <div id="sendMessSec" class="bgLightGrey border">
+                    <div id="sendMessSec" class="bgGrey border">
                         Send New Message
                     </div>
                 </div>   

@@ -1,7 +1,7 @@
 /******** ROOT STYLE ********/
 :root {
     --teal: #009688;
-    --lightGrey: #EAEAEA;
+    --lightGrey: #FAFAFA;
     --lightBlue: #8DDAFC;
     --grey: #EAEBEB;
     --darkGreyTxt: #B1B1B1;
@@ -66,7 +66,6 @@ main {
 
 #singleChatSec {
     overflow-y: scroll;
-    height: 52%;
 }
 
 #singleChatSec .chatTime {
@@ -76,6 +75,10 @@ main {
 /* Active Chat Section Style */
 #activeChatSec {
     background-image: url(../img/mine.jpg);
+}
+
+.activeChat {
+    background-color: var(--grey);
 }
 
 #topBannerActiveChat,

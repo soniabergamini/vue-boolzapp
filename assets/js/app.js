@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            currentChat: 0,
             userProfile: {
                 name: 'Sofia',
                 avatar: './assets/img/avatar_io.jpg'
@@ -36,7 +37,7 @@ createApp({
                         {   date: '28/03/2020 16:15:22',            message: 'Ah scusa!',                                          status: 'received' }
                     ],
                 },
-                {   name: 'Alessandro B.',
+                {   name: 'Alessandro',
                     avatar: './assets/img/avatar_4.jpg',
                     visible: true,
                     messages: [
@@ -44,7 +45,7 @@ createApp({
                         {   date: '10/01/2020 15:50:00',            message: 'Si, ma preferirei andare al cinema',                 status: 'received' }
                     ],
                 },
-                {   name: 'Alessandro L.',
+                {   name: 'Luca',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
                     messages: [
