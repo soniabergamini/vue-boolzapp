@@ -1,9 +1,10 @@
 /******** ROOT STYLE ********/
 :root {
-    --blueBG: #141922;
-    --darkblueBG: #070B12;
-    --greyBG: #282828;
-    --lightgreyTXT: #7E7F84;
+    --teal: #009688;
+    --lightGrey: #EAEAEA;
+    --lightBlue: #8DDAFC;
+    --grey: #EAEBEB;
+    --darkGreyTxt: #B1B1B1;
 }
 
 /******** RESET STYLE ********/
@@ -26,13 +27,29 @@ img {
 /******** GENERAL STYLE ********/
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
     background: rgb(220,219,209);
     background: linear-gradient(0deg, rgba(220,219,209,1) 80%, rgba(0,150,136,1) 80%);
 }
 
-/******** HEADER STYLE ********/
-
 /******** MAIN STYLE ********/
+main {
+    max-width: 93.75rem;
+    min-width: 38rem;
+    width: 80%;
+    min-height: 100vh;
+    margin: 0 auto;
+}
 
-/******** FOOTER STYLE ********/
+.container {
+    min-height: 80vh;
+    width: 100%;
+}
+
+#activeChatSec {
+    flex-grow: 1;
+}
+
+#allChatSec {
+    width: 30%;
+    min-width: 14.375rem;
+}

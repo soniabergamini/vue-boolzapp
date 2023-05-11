@@ -81,5 +81,8 @@ createApp({
         test() {
             console.log("test")
         }
+    },
+    mounted() {
+        console.log("Hello from VueJS 👋")
     }
 }).mount('#app')

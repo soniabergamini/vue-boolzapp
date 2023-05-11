@@ -1,7 +1,7 @@
 /********************************************
         FLEX & GAP CONTAINERS HELPERS 
 ********************************************/
-.flex           {display: flex;}
+.dFlex          {display: flex;}
 .flexColumn     {flex-direction: column;}
 .flexWrap       {flex-wrap: wrap;}
 .flexWrapRev    {flex-wrap: wrap-reverse;}
@@ -27,7 +27,7 @@
         UTILITY | Customize text  
  *******************************************/
 .txtWhite       {color: white;}
-.txtGrey        {color: var(--lightgreyTXT);}
+.txtGrey        {color: var(--darkGreyTxt);}
 .txtBlack       {color: black;}
 .txtSmall       {font-size: small;}
 .txtUnderline   {text-decoration: underline;}
@@ -42,9 +42,10 @@
 .listStyleNone  {list-style-type: none;}
 .visHidden      {visibility: hidden;}
 .boxShadow      {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
-.bgBlue         {background-color: var(--blueBG);}
-.bgDarkblue     {background-color: var(--darkblueBG);}
-.bgGrey         {background-color: var(--greyBG);}
+.bgLightBlue    {background-color: var(--lightBlue);}
+.bgLightGrey    {background-color: var(--lightGrey);}
+.bgGrey         {background-color: var(--grey);}
+.bgDarkGrey     {background-color: var(--darkGreyTxt);}
 .bgWhite        {background-color: white;}
 
 /********************************************
@@ -77,7 +78,7 @@
 .fontBigHov:hover       {font-size: 18px;}
 .boxShadowHov:hover     {box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);}
 .txtUnderHov:hover      {text-decoration: underline;}
-.changeColBlueHov:hover {color: var(--blueBG);}
+.changeColGreyHov:hover {color: var(--grey);}
 .txtUnderUpperHov:hover {
     text-decoration: underline;
     text-transform: uppercase;
