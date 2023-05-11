@@ -29,6 +29,7 @@
  *******************************************/
 .txtWhite       {color: white;}
 .txtGrey        {color: var(--darkGreyTxt);}
+.txtBlue        {color: var(--lightBlue);}
 .txtBlack       {color: black;}
 .txtSmall       {font-size: small;}
 .txtUnderline   {text-decoration: underline;}
@@ -61,6 +62,7 @@
 .wid30Perc      {width: 30%;}
 .pad2rem        {padding: 2rem;}
 .pad1rem        {padding: 1rem;}
+.pad05em        {padding: .5em;}
 .marginBottom8  {margin-bottom: 8rem;}
 .marginLat05em  {margin: 0 .5em;}
 .border         {border: 1px solid black;}
