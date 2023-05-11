@@ -13,6 +13,7 @@
 .alignStart     {align-items: flex-start;}
 .alignEnd       {align-items: flex-end;}
 .gap1em         {gap: 1em;}
+.fGrow1         {flex-grow: 1;}
 
 /********************************************
     POSITION, TRANSITION & DISPLAY HELPERS 

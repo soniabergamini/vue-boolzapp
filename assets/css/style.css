@@ -41,15 +41,41 @@ main {
 }
 
 .container {
-    min-height: 80vh;
+    height: 80vh;
     width: 100%;
 }
 
-#activeChatSec {
-    flex-grow: 1;
-}
-
+/* All Chat Section Style */
 #allChatSec {
     width: 30%;
     min-width: 14.375rem;
+}
+
+#allChatSec > div:nth-child(2) {
+    height: 12%;
+}
+
+#allChatSec > div:nth-child(3) {
+    height: 6%;
+}
+
+#allChatSec > div:last-child {
+    overflow-y: scroll;
+    height: 52%;
+}
+
+/* Active Chat Section Style */
+#activeChatSec {
+    background-image: url(../img/mine.jpg);
+}
+
+#activeChatSec > div:first-child,
+#activeChatSec > div:last-child,
+#allChatSec > div:first-child {
+    height: 10%;
+}
+
+#activeChatSec > div:nth-child(2) {
+    height: 80%;
+    overflow-y: scroll;
 }
