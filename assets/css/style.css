@@ -49,7 +49,8 @@ main {
     min-width: 14.375rem;
 }
 
-#userProfileSec button {
+#userProfileSec button,
+#topBannerActiveChat button {
     border: none;
 }
 
@@ -89,4 +90,8 @@ main {
 #chatMessagesSec {
     height: 80%;
     overflow-y: scroll;
+}
+
+#sendMessSec {
+    background-color: rgba(255, 255, 255, 0.612);
 }

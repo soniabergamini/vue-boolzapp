@@ -23,7 +23,7 @@
         <main class="dFlex alignCtr justyCtr vh100">
             <section class="container border dFlex wid100Perc">
                 <!-- All Chat Section -->
-                <div id="allChatSec" class="border dFlex flexColumn">
+                <div id="allChatSec" class="dFlex flexColumn">
                     <!-- User profile and icons -->
                     <div id="userProfileSec" class="bgGrey dFlex spaceBtw alignCtr pad05em">
                         <div class="dFlex alignCtr gap1em">
@@ -31,9 +31,9 @@
                             <span>{{userProfile.name}}</span>
                         </div>
                         <div>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-circle-notch txtGrey"></i></button>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-message txtGrey"></i></button>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-lg fa-solid fa-ellipsis-vertical txtGrey"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-circle-notch txtGrey"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-message txtGrey"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey"></i></button>
                         </div>
                     </div>
                     <!-- CTA Boolzapp notifications -->
@@ -72,15 +72,26 @@
                 <!-- Active Chat Section -->
                 <div id="activeChatSec" class="border fGrow1 dFlex flexColumn">
                     <!-- Top Banner: Chat friend and buttons -->
-                    <div id="topBannerActiveChat" class="bgGrey border">
-                        User and buttons
+                    <div id="topBannerActiveChat" class="bgGrey dFlex spaceBtw alignCtr pad05em">
+                         <div class="dFlex alignCtr gap1em">
+                            <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
+                            <p>
+                                <span>{{contacts[currentChat].name}}</span>
+                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle 12:00</small>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey"></i></button>
+                        </div>
                     </div>
                     <!-- Chat with messages -->
                     <div id="chatMessagesSec" class="fGrow1 border">
                         Chat                        
                     </div>
                     <!-- Send new message -->
-                    <div id="sendMessSec" class="bgGrey border">
+                    <div id="sendMessSec" class="border">
                         Send New Message
                     </div>
                 </div>   
