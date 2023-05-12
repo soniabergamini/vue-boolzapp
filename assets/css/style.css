@@ -77,6 +77,7 @@ input {
 /* Active Chat Section Style */
 #activeChatSec {
     background-image: url(../img/mine.jpg);
+    border-left: 1px solid var(--darkGreyTxt);
 }
 
 .activeChat {
