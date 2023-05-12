@@ -3,6 +3,15 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // Search Bar Input
+            newSearch: "",
+            // New Message Input
+            newMessage: { 
+                date: '10/01/2020 15:30:55', 
+                message: '', 
+                status: 'sent'
+            },
+            inputErrorClass: "",
             // Current Chat Index
             currentChat: 0,
             // User Profile Object
@@ -99,8 +108,7 @@ createApp({
                         {   date: '10/01/2020 15:51:00',            message: 'OK!!',                                               status: 'received' }
                     ],
                 }
-            ],
-            newSearch: ""
+            ]
         }
     },
     methods: {
@@ -112,6 +120,18 @@ createApp({
                     element.visible = false
                 }
             })
+        },
+        // Add new message inside active chat
+        addMessage() {
+            if (this.newMessage.message.length > 0) {
+                console.log(this.newMessage.message)
+                this.contacts[this.currentChat].messages.push({...this.newMessage})
+                window.scrollBy(0, 100);
+                this.newMessage.message = ""
+            } else {
+                this.inputErrorClass = "inputError",
+                setTimeout(() => this.inputErrorClass = "", 600);
+            }
         }
     },
     mounted() {

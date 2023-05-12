@@ -47,8 +47,7 @@
                     <!-- Search Bar -->
                     <div id="searchBarSec" class="bgLightGrey dFlex alignCtr pad05em">
                         <form class="wid100Perc">
-                          <input class="wid100Perc txtGrey borderRadius" type="search" placeholder="Cerca o inizia una nuova chat" v-model="newSearch" @keyUp="chatSearch()">
-                          <!-- <button type="submit">Search</button> -->
+                          <input class="wid100Perc txtGrey borderRadius" type="search" placeholder="Cerca o inizia una nuova chat" v-model="newSearch" @keyUp="chatSearch">
                         </form>
                     </div>
                     <!-- Single conversations -->
@@ -102,9 +101,9 @@
                         <div>
                             <button class="marginLat1em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-regular fa-face-smile"></i></button>
                         </div>
-                        <form class="wid100Perc dFlex justyCtr">
-                          <input class="txtGrey borderRadius marginLat1em" type="text" placeholder="Scrivi un messaggio">
-                        </form>
+                        <div class="wid100Perc dFlex justyCtr">
+                            <input :class="inputErrorClass" class="txtGrey borderRadius marginLat1em" type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
+                        </div>
                         <div>
                             <button class="marginLat1em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-microphone"></i></button>
                         </div>

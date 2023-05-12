@@ -129,8 +129,21 @@ input {
 }
 
 #sendMessSec input {
-    height: 43px;
+    height: 38px;
     width: 95%;
     padding-left: 15px;
     font-size: .9rem;
+}
+
+.inputError {
+    animation: shake .2s;
+    animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
 }
