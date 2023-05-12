@@ -1,6 +1,7 @@
 /******** ROOT STYLE ********/
 :root {
     --teal: #009688;
+    --green: #D5F9BA;
     --lightGrey: #FAFAFA;
     --lightBlue: #8DDAFC;
     --grey: #EAEBEB;
@@ -87,6 +88,18 @@ input {
 #chatMessagesSec {
     height: 80%;
     overflow-y: scroll;
+}
+
+.message > div {
+    max-width: 80%;
+    min-width: 10%;
+    font-size: 14.5px;
+    padding: .7rem .9rem;
+}
+
+.message small {
+    font-size: 11px;
+    margin: .3rem -.5rem -.5rem 0;
 }
 
 #sendMessSec {

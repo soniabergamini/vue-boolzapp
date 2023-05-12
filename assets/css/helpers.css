@@ -9,6 +9,7 @@
 .spaceBtw       {justify-content: space-between;}
 .justyCtr       {justify-content: center;}
 .spaceARN       {justify-content: space-around;}
+.justyEnd       {justify-content: flex-end;}
 .alignCtr       {align-items: center;}
 .alignStart     {align-items: flex-start;}
 .alignEnd       {align-items: flex-end;}
@@ -35,6 +36,7 @@
 .txtUnderline   {text-decoration: underline;}
 .txtItalic      {font-style: italic;}
 .txtAlignCtr    {text-align: center;}
+.txtAlignRight   {text-align: right;}
 .txtVertAlignMid{vertical-align: middle;}
 
 /********************************************
@@ -48,6 +50,7 @@
 .bgLightGrey    {background-color: var(--lightGrey);}
 .bgGrey         {background-color: var(--grey);}
 .bgDarkGrey     {background-color: var(--darkGreyTxt);}
+.bgGreen        {background-color: var(--green);}
 .bgWhite        {background-color: white;}
 
 /********************************************
@@ -68,7 +71,7 @@
 .marginLat1em   {margin: 0 1em;}
 .border         {border: 1px solid black;}
 .borderRadius   {border-radius: 4px;}
-.borderRadius3  {border-radius: 3rem;}
+.borderRadius05 {border-radius: .5rem;}
 .borderRadius50 {border-radius: 50%;}
 .borderBottom   {border-bottom: 0.5px solid grey;}
 .boxCtr         {
