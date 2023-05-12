@@ -65,8 +65,9 @@
 .pad05em        {padding: .5em;}
 .marginTopBot   {margin: .2rem 0;}
 .marginLat05em  {margin: 0 .5em;}
+.marginLat1em   {margin: 0 1em;}
 .border         {border: 1px solid black;}
-.borderRadius   {border-radius: 1.5rem;}
+.borderRadius   {border-radius: 4px;}
 .borderRadius3  {border-radius: 3rem;}
 .borderRadius50 {border-radius: 50%;}
 .borderBottom   {border-bottom: 0.5px solid grey;}
