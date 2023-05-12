@@ -88,24 +88,14 @@
                     </div>
                     <!-- Chat with messages -->
                     <div id="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
-                        <div class="msgSent">
-                            <div>
-                                <span> Mess 1 asfdafsdf dafdfs ehilaaaaaaaaaaaaaaaa aaaaaaaa ooo ooo ooooo ooooo oo oooooooo oo oooooo ooooooooooooo</span>
-                                <small>12:00</small>
+                        <template v-for="(mess, i) in contacts[currentChat].messages">
+                            <div :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
+                                <div>
+                                    <span>{{mess.message}}</span>
+                                    <small>12:00</small>
+                                </div>
                             </div>
-                        </div> 
-                        <div class="msgSent">
-                            <div>
-                                <span> Mess 2: ciao come va??</span>
-                                <small>12:00</small>
-                            </div>
-                        </div> 
-                        <div class="msgReceived">
-                            <div>
-                                <span> Mess 3: heyla! tutto bene!!</span>
-                                <small>12:00</small>
-                            </div>
-                        </div>                 
+                        </template>              
                     </div>
                     <!-- Send new message -->
                     <div id="sendMessSec" class="dFlex alignCtr spaceBtw pad05em">
