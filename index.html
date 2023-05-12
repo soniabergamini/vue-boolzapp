@@ -89,10 +89,10 @@
                     <!-- Chat with messages -->
                     <div id="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
                         <template v-for="(mess, i) in contacts[currentChat].messages">
-                            <div :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
-                                <div>
+                            <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
+                                <div class="borderRadius05">
                                     <span>{{mess.message}}</span>
-                                    <small>12:00</small>
+                                    <small class="displayBlock txtAlignRight txtGrey">12:00</small>
                                 </div>
                             </div>
                         </template>              
