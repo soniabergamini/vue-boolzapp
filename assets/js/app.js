@@ -7,14 +7,14 @@ createApp({
             newSearch: "",
             // New Message Input
             newMessage: { 
-                date: '', 
+                date: '28/03/2020 10:20:10', 
                 message: '', 
                 status: 'sent'
             },
             inputErrorClass: "",
             // Auto Reply Message
             autoReply: {
-                date: '', 
+                date: '28/03/2020 10:20:10', 
                 message: 'Top! 👍', 
                 status: 'received'
             },
@@ -129,7 +129,7 @@ createApp({
         },
         // Add new message inside active chat
         addMessage() {
-            if (this.newMessage.message.length > 0) {
+            if (this.newMessage.message.length > 0 && this.newMessage.message.trim()) {
                 // Send New Message
                 this.contacts[this.currentChat].messages.push({...this.newMessage})
                 this.newMessage.message = ""
