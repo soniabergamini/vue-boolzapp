@@ -90,16 +90,40 @@ input {
     overflow-y: scroll;
 }
 
-.message > div {
+.msgSent > div,
+.msgReceived > div {
     max-width: 80%;
     min-width: 10%;
     font-size: 14.5px;
     padding: .7rem .9rem;
 }
 
-.message small {
+.msgSent small,
+.msgReceived small {
     font-size: 11px;
     margin: .3rem -.5rem -.5rem 0;
+    display: block;
+    text-align: right;
+    color: var(--darkGreyTxt);
+}
+
+.msgReceived,
+.msgSent {
+    display: flex;
+}
+
+.msgSent {
+    justify-content: flex-end;
+}
+
+.msgSent > div {
+    background-color: var(--green);
+    border-radius: .5rem;
+}
+
+.msgReceived > div {
+    background-color: white;
+    border-radius: .5rem;
 }
 
 #sendMessSec {
