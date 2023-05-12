@@ -55,7 +55,7 @@
                     </div>
                     <!-- Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
-                        <div v-for="(friend, i) in contacts" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
+                        <div v-for="(friend, i) in contacts" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
                             <div class="dFlex alignCtr gap1em">
                                 <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                 <p>
