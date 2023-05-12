@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Font -->
-    <!-- ----space to insert GFont links---- -->
      <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <!-- Font Awesome -->
@@ -49,24 +47,26 @@
                     <!-- Search Bar -->
                     <div id="searchBarSec" class="bgLightGrey dFlex alignCtr pad05em">
                         <form class="wid100Perc">
-                          <input class="wid100Perc txtGrey borderRadius" type="search" placeholder="Cerca o inizia una nuova chat">
+                          <input class="wid100Perc txtGrey borderRadius" type="search" placeholder="Cerca o inizia una nuova chat" v-model="newSearch" @keyUp="chatSearch()">
                           <!-- <button type="submit">Search</button> -->
                         </form>
                     </div>
                     <!-- Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
-                        <div v-for="(friend, i) in contacts" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
-                            <div class="dFlex alignCtr gap1em">
-                                <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
-                                <p>
-                                    <span>{{friend.name}}</span>
-                                    <small class="txtGrey displayBlock marginTopBot">Ultimo messaggio inviato</small>
-                                </p>
+                        <template v-for="(friend, i) in contacts">
+                            <div v-if="friend.visible === true" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
+                                <div class="dFlex alignCtr gap1em">
+                                    <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
+                                    <p>
+                                        <span>{{friend.name}}</span>
+                                        <small class="txtGrey displayBlock marginTopBot">Ultimo messaggio inviato</small>
+                                    </p>
+                                </div>
+                                <div class="chatTime">
+                                    <small class="txtGrey">12:00</small>
+                                </div>
                             </div>
-                            <div class="chatTime">
-                                <small class="txtGrey">12:00</small>
-                            </div>
-                        </div>
+                        </template>
                     </div>
                 </div>    
                 <!-- Active Chat Section -->

@@ -3,7 +3,9 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // Current Chat Index
             currentChat: 0,
+            // User Profile Object
             userProfile: {
                 name: 'Sofia',
                 avatar: './assets/img/avatar_io.jpg'
@@ -97,12 +99,19 @@ createApp({
                         {   date: '10/01/2020 15:51:00',            message: 'OK!!',                                               status: 'received' }
                     ],
                 }
-            ]
+            ],
+            newSearch: ""
         }
     },
     methods: {
-        test() {
-            console.log("test")
+        //Compare the search bar input with the Contacts list and returns only matches.
+        chatSearch() {
+            this.contacts.forEach((element) => {
+                element.visible = true
+                if (!element.name.toLowerCase().includes(this.newSearch.toLowerCase())) {
+                    element.visible = false
+                }
+            })
         }
     },
     mounted() {

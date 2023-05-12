@@ -75,6 +75,10 @@ input {
     align-self: flex-start;
 }
 
+#singleChatSec > div:last-child {
+    border-bottom: none;
+}
+
 /* Active Chat Section Style */
 #activeChatSec {
     background-image: url(../img/mine.jpg);
@@ -89,6 +93,10 @@ input {
     height: 80%;
     overflow-y: scroll;
 }
+
+/* #chatMessagesSec span {
+    word-break: break-all;
+} */
 
 .msgSent > div,
 .msgReceived > div {
