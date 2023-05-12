@@ -18,6 +18,9 @@ createApp({
                 message: 'Top! 👍', 
                 status: 'received'
             },
+            // Current MouseOver Message Index
+            currentMouseover: "null",
+            menuVisibility: null,
             // Current Chat Index
             currentChat: 0,
             // User Profile Object
@@ -140,6 +143,24 @@ createApp({
                 this.inputErrorClass = "inputError",
                 setTimeout(() => this.inputErrorClass = "", 600);
             }
+        },
+        // Delete a message inside active chat
+        removeMessage(position) {
+            this.contacts[this.currentChat].messages.splice(position, 1),
+            this.menuVisibility = null
+        },
+        // Show Message Dropdown Menu Button
+        showBtnMenu(i) {
+            this.currentMouseover = i
+        },
+        // Hide Message Dropdown Menu Button
+        hideBtnMenu() {
+            this.currentMouseover = null
+        },
+        // Show/hide Message Dropdown Menu
+        showMenu(i) {
+            this.menuVisibility != null ? this.menuVisibility = null : this.menuVisibility = i,
+            setTimeout(() => this.menuVisibility = null, 1 * 9000);
         }
     },
     mounted() {

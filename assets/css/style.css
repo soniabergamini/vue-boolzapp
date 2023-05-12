@@ -19,6 +19,7 @@
 
 a {
     text-decoration: none;
+    color: var(--darkGreyTxt);
 }
 
 img {
@@ -112,6 +113,16 @@ input {
     margin: .3rem -.5rem -.5rem 0;
 }
 
+.msgSent button,
+.msgReceived button {
+    font-size: 11px;
+    top: 0;
+    right: 0;
+    padding: 4px 6px;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
 .msgSent {
     justify-content: flex-end;
 }
@@ -122,6 +133,14 @@ input {
 
 .msgReceived > div {
     background-color: white;
+}
+
+#msgDropdown {
+    font-size: smaller;
+    top: 40%;
+    right: 0;
+    padding: .5em .8em;
+    z-index: 3;
 }
 
 #sendMessSec {

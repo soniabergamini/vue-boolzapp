@@ -89,9 +89,15 @@
                     <div id="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
                         <template v-for="(mess, i) in contacts[currentChat].messages">
                             <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
-                                <div class="borderRadius05">
+                                <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
                                     <small class="displayBlock txtAlignRight txtGrey">{{mess.date.slice(10,16)}}</small>
+                                    <!-- Message Dropdown Menu -->
+                                    <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
+                                    <div id="msgDropdown" class="bgGrey posAbsolute" :class="menuVisibility != i ? 'dNone' : null">
+                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="removeMessage(i)">Elimina</a>
+                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em">Informazioni</a>
+                                    </div>
                                 </div>
                             </div>
                         </template>              

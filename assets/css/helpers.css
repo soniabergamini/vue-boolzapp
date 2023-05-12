@@ -24,6 +24,7 @@
 .posRelative    {position: relative;}
 .posAbsolute    {position: absolute;}
 .displayBlock   {display: block;}
+.dNone          {display: none;}
 
 /********************************************
         UTILITY | Customize text  
