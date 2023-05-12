@@ -7,11 +7,17 @@ createApp({
             newSearch: "",
             // New Message Input
             newMessage: { 
-                date: '10/01/2020 15:30:55', 
+                date: '', 
                 message: '', 
                 status: 'sent'
             },
             inputErrorClass: "",
+            // Auto Reply Message
+            autoReply: {
+                date: '', 
+                message: 'Top! 👍', 
+                status: 'received'
+            },
             // Current Chat Index
             currentChat: 0,
             // User Profile Object
@@ -124,11 +130,13 @@ createApp({
         // Add new message inside active chat
         addMessage() {
             if (this.newMessage.message.length > 0) {
-                console.log(this.newMessage.message)
+                // Send New Message
                 this.contacts[this.currentChat].messages.push({...this.newMessage})
-                window.scrollBy(0, 100);
                 this.newMessage.message = ""
+                // Get automatic reply
+                setTimeout(() => this.contacts[this.currentChat].messages.push({...this.autoReply}), 1000);
             } else {
+                // Error input for new message
                 this.inputErrorClass = "inputError",
                 setTimeout(() => this.inputErrorClass = "", 600);
             }
