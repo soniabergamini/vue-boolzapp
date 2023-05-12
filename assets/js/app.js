@@ -18,7 +18,7 @@ createApp({
                 message: 'Top! 👍', 
                 status: 'received'
             },
-            // Current MouseOver Message Index
+            // Message Dropdown Menu Indexes
             currentMouseover: "null",
             menuVisibility: null,
             // Current Chat Index
