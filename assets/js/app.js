@@ -118,7 +118,7 @@ createApp({
         }
     },
     methods: {
-        //Compare the search bar input with the Contacts list and returns only matches.
+        // Compare the search bar input with the Contacts list and returns only matches.
         chatSearch() {
             this.contacts.forEach((element) => {
                 element.visible = true

@@ -58,11 +58,11 @@
                                     <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                     <p>
                                         <span>{{friend.name}}</span>
-                                        <small class="txtGrey displayBlock marginTopBot">Ultimo messaggio inviato</small>
+                                        <small class="txtGrey displayBlock marginTopBot">{{friend.messages[friend.messages.length-1].message}}</small>
                                     </p>
                                 </div>
                                 <div class="chatTime">
-                                    <small class="txtGrey">12:00</small>
+                                    <small class="txtGrey">{{friend.messages[friend.messages.length-1].date.slice(10,16)}}</small>
                                 </div>
                             </div>
                         </template>
@@ -76,7 +76,7 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle 12:00</small>
+                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date.slice(10,16)}}</small>
                             </p>
                         </div>
                         <div>
@@ -91,7 +91,7 @@
                             <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05">
                                     <span>{{mess.message}}</span>
-                                    <small class="displayBlock txtAlignRight txtGrey">12:00</small>
+                                    <small class="displayBlock txtAlignRight txtGrey">{{mess.date.slice(10,16)}}</small>
                                 </div>
                             </div>
                         </template>              
