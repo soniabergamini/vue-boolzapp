@@ -153,11 +153,11 @@ createApp({
             this.contacts[this.currentChat].messages.splice(position, 1),
             this.menuVisibility = null
         },
-        // Show Message Dropdown Menu Button
+        // Show Message Dropdown Menu button
         showBtnMenu(i) {
             this.currentMouseover = i
         },
-        // Hide Message Dropdown Menu Button
+        // Hide Message Dropdown Menu button
         hideBtnMenu() {
             this.currentMouseover = null
         },
@@ -169,7 +169,21 @@ createApp({
         // Return a string with current date and time
         currentTime() {
             return DateTime.now().toString()
-        }
+        },
+        // Return a string with last access/message time
+        lastAccess(element) {
+            if (element != undefined) {
+                // Last Message
+                return element.messages[element.messages.length-1].date.slice(11,16)
+            } else {
+                // Last Access
+                return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(11,16)
+            }
+        },
+        // Return a string with message time
+        messTime(element) {
+            return element.date.slice(11,16)
+        } 
     },
     mounted() {
         console.log("Hello from VueJS 👋 Current Time: " + DateTime.now().toString().slice(11,16))
