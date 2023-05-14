@@ -1,3 +1,4 @@
+var DateTime = luxon.DateTime;
 const { createApp } = Vue
 
 createApp({
@@ -7,14 +8,14 @@ createApp({
             newSearch: "",
             // New Message Input
             newMessage: { 
-                date: '28/03/2020 10:20:10', 
+                date: '', 
                 message: '', 
                 status: 'sent'
             },
             inputErrorClass: "",
             // Auto Reply Message
             autoReply: {
-                date: '28/03/2020 10:20:10', 
+                date: '', 
                 message: 'Top! 👍', 
                 status: 'received'
             },
@@ -25,8 +26,9 @@ createApp({
             currentChat: 0,
             // User Profile Object
             userProfile: {
-                name: 'Sofia',
-                avatar: './assets/img/avatar_io.jpg'
+                name: 'Sonia',
+                avatar: './assets/img/ioo.gif'
+                // avatar: './assets/img/avatar_io.jpg'
             },
             // Objects Array
             contacts: [
@@ -134,9 +136,11 @@ createApp({
         addMessage() {
             if (this.newMessage.message.length > 0 && this.newMessage.message.trim()) {
                 // Send New Message
+                this.newMessage.date = this.currentTime()
                 this.contacts[this.currentChat].messages.push({...this.newMessage})
                 this.newMessage.message = ""
                 // Get automatic reply
+                this.autoReply.date = this.currentTime()
                 setTimeout(() => this.contacts[this.currentChat].messages.push({...this.autoReply}), 1000);
             } else {
                 // Error input for new message
@@ -161,9 +165,13 @@ createApp({
         showMenu(i) {
             this.menuVisibility != null ? this.menuVisibility = null : this.menuVisibility = i,
             setTimeout(() => this.menuVisibility = null, 1 * 9000);
+        },
+        // Return a string with current date and time
+        currentTime() {
+            return DateTime.now().toString()
         }
     },
     mounted() {
-        console.log("Hello from VueJS 👋")
+        console.log("Hello from VueJS 👋 Current Time: " + DateTime.now().toString().slice(11,16))
     }
 }).mount('#app')

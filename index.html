@@ -62,7 +62,7 @@
                                     </p>
                                 </div>
                                 <div class="chatTime">
-                                    <small class="txtGrey">{{friend.messages[friend.messages.length-1].date.slice(10,16)}}</small>
+                                    <small class="txtGrey">{{friend.messages[friend.messages.length-1].date.slice(11,16)}}</small>
                                 </div>
                             </div>
                         </template>
@@ -76,7 +76,7 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date.slice(10,16)}}</small>
+                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{contacts[currentChat].messages[contacts[currentChat].messages.length-1].date.slice(11,16)}}</small>
                             </p>
                         </div>
                         <div>
@@ -91,7 +91,7 @@
                             <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
-                                    <small class="displayBlock txtAlignRight txtGrey">{{mess.date.slice(10,16)}}</small>
+                                    <small class="displayBlock txtAlignRight txtGrey">{{mess.date.slice(11,16)}}</small>
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
                                     <div id="msgDropdown" class="bgGrey posAbsolute" :class="menuVisibility != i ? 'dNone' : null">
@@ -99,7 +99,7 @@
                                       <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em">Informazioni</a>
                                     </div>
                                     <!-- Message Speech Bubbles -->
-                                    <div :class="mess.status === 'sent' ? 'bubbleSent' : 'bubbleReceived'" class="bubble posAbsolute"></div>
+                                    <div :class="mess.status != 'sent' ? 'bubbleReceived' : null" class="bubble posAbsolute"></div>
                                 </div>
                             </div>
                         </template>              
@@ -120,6 +120,8 @@
             </section>  
         </main>
     </div>
+    <!-- Script Luxon JS -->
+    <script src="./assets/js/luxon.js"></script>
     <!-- Script App JS -->
     <script src="./assets/js/app.js"></script>
 </body>
