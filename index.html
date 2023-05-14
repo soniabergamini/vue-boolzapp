@@ -76,7 +76,8 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{lastAccess()}}</small>
+                                <small :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{lastAccess()}}</small>
+                                <small :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
                         </div>
                         <div>
@@ -91,12 +92,13 @@
                             <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
-                                    <small class="displayBlock txtAlignRight txtGrey">{{messTime(mess)}}</small>
+                                    <small class="displayBlock txtAlignRight txtGrey"><i :class="mess.star != true ? 'dNone' : null" class="fa-xs fa-solid fa-star"></i> {{messTime(mess)}}</small>
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
-                                    <div id="msgDropdown" class="bgGrey posAbsolute" :class="menuVisibility != i ? 'dNone' : null">
-                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="removeMessage(i)">Elimina</a>
-                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em">Informazioni</a>
+                                    <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="menuVisibility != i ? 'dNone' : null">
+                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="mess.star = !mess.star, menuVisibility = null"><i class="fa-regular fa-star"></i> Preferiti</a>
+                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="menuVisibility = null"><i class="fa-solid fa-share fa-flip-horizontal"></i> Rispondi</a>
+                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="removeMessage(i)"><i class="fa-solid fa-trash-can"></i> Elimina</a>
                                     </div>
                                     <!-- Message Speech Bubbles -->
                                     <div :class="mess.status != 'sent' ? 'bubbleReceived' : null" class="bubble posAbsolute"></div>

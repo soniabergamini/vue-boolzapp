@@ -33,6 +33,7 @@
 .txtGrey        {color: var(--darkGreyTxt);}
 .txtBlue        {color: var(--lightBlue);}
 .txtBlack       {color: black;}
+.txtRed         {color: red;}
 .txtSmall       {font-size: small;}
 .txtUnderline   {text-decoration: underline;}
 .txtItalic      {font-style: italic;}
