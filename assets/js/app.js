@@ -91,7 +91,7 @@ createApp({
                     ],
                 },
                 {   name: 'Betta',
-                    avatar: './assets/img/avatar_6.jpg',
+                    avatar: './assets/img/avatar_io.jpg',
                     visible: true,
                     messages: [
                         {   date: '10/01/2020 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received' },

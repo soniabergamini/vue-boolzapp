@@ -143,6 +143,22 @@ input {
     z-index: 3;
 }
 
+.bubble {
+    border-top: 10px solid #D5F9BA;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: 0;
+    right: -10px;
+}
+
+.bubble.bubbleReceived {
+    border-top-color: white;
+    left: -10px;
+}
+
 #sendMessSec {
     background-color: rgba(255, 255, 255, 0.612);
 }

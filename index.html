@@ -98,6 +98,8 @@
                                       <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="removeMessage(i)">Elimina</a>
                                       <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em">Informazioni</a>
                                     </div>
+                                    <!-- Message Speech Bubbles -->
+                                    <div :class="mess.status === 'sent' ? 'bubbleSent' : 'bubbleReceived'" class="bubble posAbsolute"></div>
                                 </div>
                             </div>
                         </template>              
