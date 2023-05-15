@@ -18,9 +18,11 @@
 <body>
     <!-- Vue JS App -->
     <div id="app">
+        <!-- Page Overlay -->
+        <div v-if="formNewChatVisibility" id="overlay" class="vw100 vh100"></div>
+        <!-- Boolzap Main Container -->
         <main class="dFlex alignCtr justyCtr vh100">
-            <div v-if="formNewChatVisibility" id="overlay" class="vw100 vh100"></div>
-            <section class="container dFlex wid100Perc posRelative">
+            <section class="container dFlex wid100Perc posRelative pad1rem">
                 <!-- All Chat Section -->
                 <div id="allChatSec" class="dFlex flexColumn">
                     <!-- User profile and icons -->
@@ -93,7 +95,7 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso alle ore {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}} del {{contacts[currentChat].messages.length > 0 ? lastAccessDate() : null}}</small>
+                                <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso {{contacts[currentChat].messages.length > 0 ? lastAccessDate() : null}} alle {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}}</small>
                                 <small v-show="contacts[currentChat].messages.length > 0"  :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
                         </div>
@@ -116,13 +118,14 @@
                             <div v-show="contacts[currentChat].messages.length > 0" class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
-                                    <small class="displayBlock txtAlignRight txtGrey"><i v-show="mess.star === true" class="fa-xs fa-solid fa-star"></i> {{messTime(mess)}}</small>
+                                    <small class="displayBlock txtAlignRight txtGrey"><i v-show="mess.star === true" class="fa-xs fa-solid fa-star"></i> {{mess.date.slice(10,15)}}</small>
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
                                     <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="msgMenuVisibility != i ? 'dNone' : null">
                                         <ul>
                                             <li class="txtGrey cPointer displayBlock marginTopBot changeColTealHov pad05em" @click="mess.star = !mess.star, msgMenuVisibility = null"><i class="fa-regular fa-star"></i> Preferiti</li>
                                             <li class="txtGrey cPointer displayBlock marginTopBot changeColTealHov pad05em" @click="msgMenuVisibility = null"><i class="fa-solid fa-share fa-flip-horizontal"></i> Rispondi</li>
+                                            <li class="txtGrey cPointer displayBlock marginTopBot changeColTealHov pad05em" @click="copyText(mess.message), msgMenuVisibility = null"><i class="fa-regular fa-paste"></i> Copia</li>
                                             <li class="displayBlock cPointer marginTopBot changeColTealHov pad05em txtRed" @click="removeMessage(i)"><i class="fa-solid fa-trash-can"></i> Elimina</li>
                                         </ul>
                                     </div>

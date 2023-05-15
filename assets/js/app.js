@@ -12,7 +12,19 @@ createApp({
             userLastLogClass: "",
             userStatusClass: "dNone",
             userStatusTxt: "Online",
-            // New Message Input
+            // Chat & Message Dropdown Menu
+            chatMenuVisibility: false,
+            msgMenuVisibility: null,
+            currentMouseover: null,
+            // Current Chat Index
+            currentChat: 0,
+            // User Profile Object
+            userProfile: {
+                name: 'Sonia',
+                avatar: './assets/img/ioo.gif'
+                // avatar: './assets/img/avatar_io.jpg'
+            },
+            // New Message
             newMessage: { 
                 date: '', 
                 message: '', 
@@ -41,114 +53,101 @@ createApp({
                 {    date: '',              message: 'Biglietti per il concerto presi!! 💃 ',             status: 'received',       star: false },
                 {    date: '',              message: '😘',                                                status: 'received',       star: false }       
             ],
-            // Chat Dropdown Menu
-            chatMenuVisibility: false,
-            // Message Dropdown Menu Indexes
-            currentMouseover: "null",
-            msgMenuVisibility: null,
-            // Current Chat Index
-            currentChat: 0,
-            // User Profile Object
-            userProfile: {
-                name: 'Sonia',
-                avatar: './assets/img/ioo.gif'
-                // avatar: './assets/img/avatar_io.jpg'
-            },
-            // Objects Array
+            // Objects Array with Contact list
             contacts: [
                 {   name: 'Mario',         
                     avatar: './assets/img/avatar_1.jpg',                  
                     visible: true,              
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Hai portato a spasso il cane?',                      status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Ricordati di stendere i panni',                      status: 'sent',           star: false },
-                        {   date: '10/01/2023 16:15:22',            message: 'Tutto fatto!',                                       status: 'received',       star: false },
-                        {   date: '10/01/2023 16:30:55',            message: 'Ottimo grazie 🐕',                                   status: 'sent',           star: false },
-                        {   date: '10/01/2023 16:31:00',            message: 'Stasera ci sei a cena?',                             status: 'sent',           star: false },
-                        {   date: '10/01/2023 16:50:12',            message: 'Si! Cosa mangiamo?',                                 status: 'received',       star: false },
-                        {   date: '10/01/2023 17:00:02',            message: 'Lasagne al forno della nonna!!!',                    status: 'sent',           star: false },
-                        {   date: '10/01/2023 17:01:30',            message: 'Le mie preferite 😍 Non vedo l\'ora',                status: 'received',       star: true },
-                        {   date: '10/01/2023 18:20:54',            message: 'A che ora arrivi?',                                  status: 'sent',           star: false },
-                        {   date: '10/01/2023 18:35:30',            message: 'Sto partendo, sono appena uscito dalla palestra',    status: 'received',       star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Hai portato a spasso il cane?',                      status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Ricordati di stendere i panni',                      status: 'sent',           star: false },
+                        {   date: '10/1/2023 16:15:22',            message: 'Tutto fatto!',                                       status: 'received',       star: false },
+                        {   date: '10/1/2023 16:30:55',            message: 'Ottimo grazie 🐕',                                   status: 'sent',           star: false },
+                        {   date: '10/1/2023 16:31:00',            message: 'Stasera ci sei a cena?',                             status: 'sent',           star: false },
+                        {   date: '10/1/2023 16:50:12',            message: 'Si! Cosa mangiamo?',                                 status: 'received',       star: false },
+                        {   date: '10/1/2023 17:00:02',            message: 'Lasagne al forno della nonna!!!',                    status: 'sent',           star: false },
+                        {   date: '10/1/2023 17:01:30',            message: 'Le mie preferite 😍 Non vedo l\'ora',                status: 'received',       star: true },
+                        {   date: '10/1/2023 18:20:54',            message: 'A che ora arrivi?',                                  status: 'sent',           star: false },
+                        {   date: '10/1/2023 18:35:30',            message: 'Sto partendo, sono appena uscito dalla palestra',    status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Papi',            
                     avatar: './assets/img/avatar_2.jpg',                   
                     visible: true,
                     messages: [
-                        {   date: '20/03/2023 16:30:00',            message: 'Ricordati di chiamare la nonna, ringraziala.',       status: 'received',       star: false },
-                        {   date: '20/03/2023 16:30:55',            message: 'Va bene, tra poco la sento!',                        status: 'sent',           star: false }
+                        {   date: '20/3/2023 16:30:00',            message: 'Ricordati di chiamare la nonna, ringraziala.',       status: 'received',       star: false },
+                        {   date: '20/3/2023 16:30:55',            message: 'Va bene, tra poco la sento!',                        status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Samuele',
                     avatar: './assets/img/avatar_3.jpg',
                     visible: true,
                     messages: [
-                        {   date: '28/03/2023 10:10:40',            message: 'La Marianna va in campagna',                         status: 'received',       star: false },
-                        {   date: '28/03/2023 10:20:10',            message: 'Sicuro di non aver sbagliato chat?',                 status: 'sent',           star: false },
-                        {   date: '28/03/2023 16:15:22',            message: 'Ah scusa!',                                          status: 'received',       star: false }
+                        {   date: '28/3/2023 10:10:40',            message: 'La Marianna va in campagna',                         status: 'received',       star: false },
+                        {   date: '28/3/2023 10:20:10',            message: 'Sicuro di non aver sbagliato chat?',                 status: 'sent',           star: false },
+                        {   date: '28/3/2023 16:15:22',            message: 'Ah scusa!',                                          status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Alessandro',
                     avatar: './assets/img/avatar_4.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Lo sai che ha aperto una nuova pizzeria?',           status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Si, ma preferirei andare al cinema',                 status: 'received',       star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Lo sai che ha aperto una nuova pizzeria?',           status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Si, ma preferirei andare al cinema',                 status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Luca',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Ciao come stai?',                                    status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Bene grazie! Stasera ci vediamo?',                   status: 'received',       star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Alle 21:30 sono da te 😘',                           status: 'sent',           star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Ciao come stai?',                                    status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Bene grazie! Stasera ci vediamo?',                   status: 'received',       star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Alle 21:30 sono da te 😘',                           status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Claudia',
                     avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Ciao Claudia, hai novità?',                          status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Non ancora',                                         status: 'received',       star: false },
-                        {   date: '10/01/2023 15:51:00',            message: 'Nessuna nuova, buona nuova',                         status: 'sent',           star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Ciao Claudia, hai novità?',                          status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Non ancora',                                         status: 'received',       star: false },
+                        {   date: '10/1/2023 15:51:00',            message: 'Nessuna nuova, buona nuova',                         status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Federico',
                     avatar: './assets/img/avatar_7.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Fai gli auguri a Martina che è il suo compleanno!',  status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Grazie per avermelo ricordato, le scrivo subito!',   status: 'received',       star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Fai gli auguri a Martina che è il suo compleanno!',  status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Grazie per avermelo ricordato, le scrivo subito!',   status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Betta',
                     avatar: './assets/img/avatar_io.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received',       star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:51:00',            message: 'Ok Baby!!',                                          status: 'received',       star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received',       star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:51:00',            message: 'Ok Baby!!',                                          status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Mamma',
                     avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, che tempo fa lì? Qui diluvia!',                status: 'received',       star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Ciao mamma, qui invece c\'è nuvolo ma non piove.',   status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:51:00',            message: 'Ok, ti voglio bene. Dimmi se il tempo peggiora',     status: 'received',       star: true },
-                        {   date: '10/01/2023 16:01:55',            message: 'Anch\'io ti voglio bene 💛',                         status: 'sent',           star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Ciao, che tempo fa lì? Qui diluvia!',                status: 'received',       star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Ciao mamma, qui invece c\'è nuvolo ma non piove.',   status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:51:00',            message: 'Ok, ti voglio bene. Dimmi se il tempo peggiora',     status: 'received',       star: true },
+                        {   date: '10/1/2023 16:01:55',            message: 'Anch\'io ti voglio bene 💛',                         status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Davide',
                     avatar: './assets/img/avatar_8.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, ci sei al compleanno di Stefy?',               status: 'received',       star: false },
-                        {   date: '10/01/2023 15:50:00',            message: 'Si, stiamo già organizzando il regalo! Partecipi?',  status: 'sent',           star: false },
-                        {   date: '10/01/2023 15:51:00',            message: 'Certo! Aggiungimi al gruppo',                        status: 'received',       star: false }
+                        {   date: '10/1/2023 15:30:55',            message: 'Ciao, ci sei al compleanno di Stefy?',               status: 'received',       star: false },
+                        {   date: '10/1/2023 15:50:00',            message: 'Si, stiamo già organizzando il regalo! Partecipi?',  status: 'sent',           star: false },
+                        {   date: '10/1/2023 15:51:00',            message: 'Certo! Aggiungimi al gruppo',                        status: 'received',       star: false }
                     ],
                 }
             ]
@@ -222,6 +221,10 @@ createApp({
             this.contacts[this.currentChat].messages.splice(position, 1),
             this.msgMenuVisibility = null
         },
+        // Copy text message to clipboard
+        copyText(text) {
+            navigator.clipboard.writeText(text);
+        },
         // Clear all chat messages inside active chat
         clearChat() {
             this.contacts[this.currentChat].messages.length = 0
@@ -245,26 +248,31 @@ createApp({
         },
         // Return a string with current date and time
         currentTime() {
-            return this.DateTime.now().toString()
+            // return this.DateTime.now().toString(),
+            let dateShort = this.DateTime.now().toLocaleString(this.DateTime.DATE_SHORT)
+            let timeSec = this.DateTime.now().toLocaleString(this.DateTime.TIME_WITH_SECONDS)
+            let date = `${dateShort} ${timeSec}`
+            return date
         },
         // Return a string with last access/message time
         lastAccess(element) {
             if (element != undefined) {
-                // Last Message
-                return element.messages[element.messages.length-1].date.slice(11,16)
+                // Last message time
+                return element.messages[element.messages.length-1].date.slice(10,15)
             } else {
-                // Last Access
-                return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(11,16)
+                // Last access time
+                return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(10,15)
             }
         },
         // Return a string with last access date
         lastAccessDate() {
-            return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,10)
-        },
-        // Return a string with message time
-        messTime(element) {
-            return element.date.slice(11,16)
-        } 
+            let lastAccessDate = this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,9)
+            if (lastAccessDate == this.DateTime.now().toLocaleString(this.DateTime.DATE_SHORT)) {
+                return "oggi"
+            } else {
+                return lastAccessDate
+            }
+        }
     },
     mounted() {
         console.log("Hello from VueJS 👋 Current Time: " + this.DateTime.now().toString().slice(11,16)),
