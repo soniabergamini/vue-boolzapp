@@ -163,9 +163,10 @@ createApp({
                 // Send New Message and start automatic reply
                 this.newMessage.date = this.currentTime()
                 this.contacts[this.currentChat].messages.push({...this.newMessage})
+                let currentChatReply = this.currentChat
                 this.scrollChatDown()
                 this.newMessage.message = ""
-                this.getAutoReply()
+                this.getAutoReply(currentChatReply)
             } else {
                 // Error input for new message
                 this.inputErrorClass = "inputError",
@@ -173,7 +174,7 @@ createApp({
             }
         },
         // Change user status and send automatic reply to the active chat
-        getAutoReply() {
+        getAutoReply(chat) {
             this.userLastLogClass = "dNone",
             this.userStatusTxt = "Online",
             this.userStatusClass = "",
@@ -183,7 +184,7 @@ createApp({
             setTimeout(() => {
                 let randomReply = Math.floor(Math.random() * (9 - 0 + 1) + 0 )
                 this.autoReply[randomReply].date = this.currentTime(),
-                this.contacts[this.currentChat].messages.push({...this.autoReply[randomReply]}),
+                this.contacts[chat].messages.push({...this.autoReply[randomReply]}),
                 this.userStatusTxt = "Online"
                 this.scrollChatDown()
             }, 1 * 10000);

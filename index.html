@@ -124,7 +124,10 @@
                             <input :class="inputErrorClass" class="txtGrey borderRadius marginLat1em" type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
                         </div>
                         <div>
-                            <button class="marginLat1em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-microphone"></i></button>
+                            <button class="marginLat1em">
+                                <i v-show="newMessage.message === ''" class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-microphone"></i>
+                                <i v-show="newMessage.message != ''" @click="addMessage" class="fa-brands fa-telegram fa-2xl txtBlue changeColTealHov cPointer"></i>
+                            </button>
                         </div>
                     </div>
                 </div>   
