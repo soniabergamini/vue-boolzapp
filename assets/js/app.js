@@ -20,11 +20,18 @@ createApp({
             },
             inputErrorClass: "",
             // Auto Reply Message
-            autoReply: {
-                date: '', 
-                message: 'Top! 👍', 
-                status: 'received'
-            },
+            autoReply: [
+                {    date: '',              message: 'Top! 👍',                                           status: 'received',       star: false },
+                {    date: '',              message: 'Perfetto 😁',                                       status: 'received',       star: false },
+                {    date: '',              message: 'Come stai?',                                        status: 'received',       star: false },
+                {    date: '',              message: 'Ti voglio bene 💛',                                 status: 'received',       star: false },
+                {    date: '',              message: 'Torno presto..',                                    status: 'received',       star: false },
+                {    date: '',              message: 'Andiamo al pub stasera? 🍻',                        status: 'received',       star: false },
+                {    date: '',              message: 'Che tempo fa lì?',                                  status: 'received',       star: false },
+                {    date: '',              message: 'Sono con Carlotta, ci sentiamo più tardi :)',       status: 'received',       star: false },
+                {    date: '',              message: 'Biglietti per il concerto presi!! 💃 ',             status: 'received',       star: false },
+                {    date: '',              message: '😘',                                                status: 'received',       star: false }       
+            ],
             // Chat Dropdown Menu
             chatMenuVisibility: false,
             // Message Dropdown Menu Indexes
@@ -174,8 +181,9 @@ createApp({
                 this.userStatusTxt = "Sta scrivendo..."
             }, 1 * 5000);
             setTimeout(() => {
-                this.autoReply.date = this.currentTime(),
-                this.contacts[this.currentChat].messages.push({...this.autoReply}),
+                let randomReply = Math.floor(Math.random() * (9 - 0 + 1) + 0 )
+                this.autoReply[randomReply].date = this.currentTime(),
+                this.contacts[this.currentChat].messages.push({...this.autoReply[randomReply]}),
                 this.userStatusTxt = "Online"
                 this.scrollChatDown()
             }, 1 * 10000);
@@ -186,7 +194,7 @@ createApp({
         },
         // Scroll down active chat 
         scrollChatDown() {
-            this.scrollTop += 2000
+            this.scrollTop += 500
             setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.scrollTop), 300)
         },
         // Delete a message inside active chat
