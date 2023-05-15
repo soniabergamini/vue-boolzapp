@@ -80,10 +80,15 @@
                                 <small v-show="contacts[currentChat].messages.length > 0"  :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
                         </div>
-                        <div>
+                        <div class="posRelative">
                             <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
                             <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey"></i></button>
+                            <!-- Chat Dropdown Menu -->
+                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
+                            <div v-show="chatMenuVisibility" id="chatDropdown" class="bgGrey posAbsolute borderRadius">
+                                <a href="#" v-show="contacts[currentChat].messages.length > 0" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="clearChat(), chatMenuVisibility = false"><i class="fa-regular fa-comments"></i> Elimina messaggi</a>
+                                <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="deleteChat(), chatMenuVisibility = false"><i class="fa-solid fa-trash-can"></i> Elimina chat</a>
+                            </div>
                         </div>
                     </div>
                     <!-- Chat with messages -->
@@ -95,10 +100,10 @@
                                     <small class="displayBlock txtAlignRight txtGrey"><i v-show="mess.star === true" class="fa-xs fa-solid fa-star"></i> {{messTime(mess)}}</small>
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
-                                    <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="menuVisibility != i ? 'dNone' : null">
-                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="mess.star = !mess.star, menuVisibility = null"><i class="fa-regular fa-star"></i> Preferiti</a>
-                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="menuVisibility = null"><i class="fa-solid fa-share fa-flip-horizontal"></i> Rispondi</a>
-                                      <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="removeMessage(i)"><i class="fa-solid fa-trash-can"></i> Elimina</a>
+                                    <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="msgMenuVisibility != i ? 'dNone' : null">
+                                        <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="mess.star = !mess.star, msgMenuVisibility = null"><i class="fa-regular fa-star"></i> Preferiti</a>
+                                        <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em" @click="msgMenuVisibility = null"><i class="fa-solid fa-share fa-flip-horizontal"></i> Rispondi</a>
+                                        <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="removeMessage(i)"><i class="fa-solid fa-trash-can"></i> Elimina</a>
                                     </div>
                                     <!-- Message Speech Bubbles -->
                                     <div :class="mess.status != 'sent' ? 'bubbleReceived' : null" class="bubble posAbsolute"></div>

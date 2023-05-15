@@ -23,9 +23,11 @@ createApp({
                 message: 'Top! 👍', 
                 status: 'received'
             },
+            // Chat Dropdown Menu
+            chatMenuVisibility: false,
             // Message Dropdown Menu Indexes
             currentMouseover: "null",
-            menuVisibility: null,
+            msgMenuVisibility: null,
             // Current Chat Index
             currentChat: 0,
             // User Profile Object
@@ -171,7 +173,15 @@ createApp({
         // Delete a message inside active chat
         removeMessage(position) {
             this.contacts[this.currentChat].messages.splice(position, 1),
-            this.menuVisibility = null
+            this.msgMenuVisibility = null
+        },
+        // Clear all chat messages inside active chat
+        clearChat() {
+            this.contacts[this.currentChat].messages.length = 0
+        },
+        // Delete the entire active chat and all related contact data, from Contacts list
+        deleteChat() {
+            this.contacts.splice(this.currentChat, 1)
         },
         // Show Message Dropdown Menu button
         showBtnMenu(i) {
@@ -183,8 +193,8 @@ createApp({
         },
         // Show/hide Message Dropdown Menu
         showMenu(i) {
-            this.menuVisibility != null ? this.menuVisibility = null : this.menuVisibility = i,
-            setTimeout(() => this.menuVisibility = null, 1 * 9000);
+            this.msgMenuVisibility != null ? this.msgMenuVisibility = null : this.msgMenuVisibility = i,
+            setTimeout(() => this.msgMenuVisibility = null, 1 * 9000);
         },
         // Return a string with current date and time
         currentTime() {

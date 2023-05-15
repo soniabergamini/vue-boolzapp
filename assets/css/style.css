@@ -136,13 +136,20 @@ input {
     background-color: white;
 }
 
-#msgDropdown {
+#msgDropdown,
+#chatDropdown {
     font-size: smaller;
     top: 40%;
     right: 0;
     padding: .5em .8em;
     z-index: 3;
-    min-width: 6.25rem;
+    min-width: 6.5rem;
+}
+
+#chatDropdown {
+    top: 50%;
+    min-width: 10rem;
+    z-index: 4;
 }
 
 .bubble {
