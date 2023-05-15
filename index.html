@@ -19,7 +19,8 @@
     <!-- Vue JS App -->
     <div id="app">
         <main class="dFlex alignCtr justyCtr vh100">
-            <section class="container dFlex wid100Perc">
+            <div v-if="formNewChatVisibility" id="overlay" class="vw100 vh100"></div>
+            <section class="container dFlex wid100Perc posRelative">
                 <!-- All Chat Section -->
                 <div id="allChatSec" class="dFlex flexColumn">
                     <!-- User profile and icons -->
@@ -30,7 +31,22 @@
                         </div>
                         <div>
                             <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-circle-notch txtGrey"></i></button>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-message txtGrey"></i></button>
+                            <!-- Add New Chat button -->
+                            <button @click="formNewChatVisibility = true" class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-message txtGrey"></i></button>
+                            <!-- Add New Chat Form -->
+                            <form v-if="formNewChatVisibility" action="#" class="bgLightGrey posAbsolute borderRadius dFlex gap1em flexColumn wid60Perc" id="formNewChat">
+                                <div class="dFlex justyEnd">
+                                    <h3 class="wid80Perc txtAlignCtr txtGrey">Nuova Chat</h3>
+                                    <button @click="formNewChatVisibility = false, this.newChat.name = '', this.newChat.gender = ''" type="reset" class="cPointer wid10Perc txtAlignRight"><i class="changeColTealHov fa-regular fa-circle-xmark fa-lg txtGrey"></i></button>
+                                </div>
+                                <input type="text" placeholder="Nome del contatto" v-model="newChat.name" class="txtGrey borderRadius marginTopBot pad05em border" required>
+                                <select id="formNewChatGender" v-model="newChat.gender" class="marginTopBot pad05em txtGrey borderRadius border" required>
+                                    <option disabled value="">Scegli il genere</option>
+                                    <option value="male" selected>Maschio</option>
+                                    <option value="female">Femmina</option>
+                                </select>
+                                <button @click="addNewChat()" class="marginTopBot wid80Perc bgTeal txtAlignCtr txtWhite cPointer borderRadius pad05em">Chatta</button>
+                            </form>
                             <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey"></i></button>
                         </div>
                     </div>

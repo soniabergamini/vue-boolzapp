@@ -19,6 +19,15 @@ createApp({
                 status: 'sent'
             },
             inputErrorClass: "",
+            // New Chat
+            formNewChatVisibility: false,
+            newChat: {
+                name: '',
+                avatar: '',
+                visible: true,
+                gender: '',
+                messages: []
+            },
             // Auto Reply Message
             autoReply: [
                 {    date: '',              message: 'Top! 👍',                                           status: 'received',       star: false },
@@ -148,6 +157,19 @@ createApp({
         }
     },
     methods: {
+        // Add new chat 
+        addNewChat() {
+            if (this.newChat.name != '' && this.newChat.gender != '') {
+                this.newChat.avatar = this.newChat.gender === 'female' ? './assets/img/avatar_io.jpg' : './assets/img/avatar_5.jpg';
+                this.newChat.name = this.newChat.name.toLowerCase();
+                this.newChat.name = this.newChat.name.charAt(0).toUpperCase() + this.newChat.name.slice(1);
+                this.contacts.unshift({...this.newChat});
+                this.formNewChatVisibility = false;
+                this.newChat.name = '',
+                this.newChat.messages = [],
+                this.newChat.gender = ''
+            }
+        },
         // Compare the search bar input with the Contacts list and returns only matches
         chatSearch() {
             this.contacts.forEach((element) => {
