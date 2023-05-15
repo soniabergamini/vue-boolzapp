@@ -84,7 +84,7 @@
                             <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
                             <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
                             <!-- Chat Dropdown Menu -->
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
+                            <button class="marginLat05em"><i class="pad05em changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
                             <div v-show="chatMenuVisibility" id="chatDropdown" class="bgGrey posAbsolute borderRadius">
                                 <a href="#" v-show="contacts[currentChat].messages.length > 0" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="clearChat(), chatMenuVisibility = false"><i class="fa-regular fa-comments"></i> Elimina messaggi</a>
                                 <a href="#" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="deleteChat(), chatMenuVisibility = false"><i class="fa-solid fa-trash-can"></i> Elimina chat</a>

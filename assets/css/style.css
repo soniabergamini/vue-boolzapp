@@ -33,6 +33,10 @@ body {
     background: linear-gradient(0deg, rgba(220,219,209,1) 80%, rgba(0,150,136,1) 80%);
 }
 
+button {
+    background-color: transparent;
+}
+
 /******** MAIN STYLE ********/
 main {
     max-width: 93.75rem;
@@ -83,8 +87,9 @@ input {
 /* Active Chat Section Style */
 #activeChatSec {
     border-left: 1px solid var(--darkGreyTxt);
-    background-image: url(../img/mine.jpg);
-    background-color: var(--lightGrey); /* Added only to display a background on github preview */
+    /* background-image: url(../img/mine.jpg); */
+    background-image: url(https://images.unsplash.com/photo-1547071286-4c6552bbe26b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+    background-size: cover;
 }
 
 .activeChat {

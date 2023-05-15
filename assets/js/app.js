@@ -38,91 +38,99 @@ createApp({
             },
             // Objects Array
             contacts: [
-                {   name: 'Michele',         
+                {   name: 'Mario',         
                     avatar: './assets/img/avatar_1.jpg',                  
                     visible: true,              
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Hai portato a spasso il cane?',                      status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'Ricordati di stendere i panni',                      status: 'sent',           star: false },
-                        {   date: '10/01/2020 16:15:22',            message: 'Tutto fatto!',                                       status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Hai portato a spasso il cane?',                      status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Ricordati di stendere i panni',                      status: 'sent',           star: false },
+                        {   date: '10/01/2023 16:15:22',            message: 'Tutto fatto!',                                       status: 'received',       star: false },
+                        {   date: '10/01/2023 16:30:55',            message: 'Ottimo grazie 🐕',                                   status: 'sent',           star: false },
+                        {   date: '10/01/2023 16:31:00',            message: 'Stasera ci sei a cena?',                             status: 'sent',           star: false },
+                        {   date: '10/01/2023 16:50:12',            message: 'Si! Cosa mangiamo?',                                 status: 'received',       star: false },
+                        {   date: '10/01/2023 17:00:02',            message: 'Lasagne al forno della nonna!!!',                    status: 'sent',           star: false },
+                        {   date: '10/01/2023 17:01:30',            message: 'Le mie preferite 😍 Non vedo l\'ora',                status: 'received',       star: true },
+                        {   date: '10/01/2023 18:20:54',            message: 'A che ora arrivi?',                                  status: 'sent',           star: false },
+                        {   date: '10/01/2023 18:35:30',            message: 'Sto partendo, sono appena uscito dalla palestra',    status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Papi',            
                     avatar: './assets/img/avatar_2.jpg',                   
                     visible: true,
                     messages: [
-                        {   date: '20/03/2020 16:30:00',            message: 'Ciao come stai?',                                    status: 'sent',           star: false },
-                        {   date: '20/03/2020 16:30:55',            message: 'Bene grazie! Stasera ci vediamo?',                   status: 'received',       star: false },
-                        {   date: '20/03/2020 16:35:00',            message: 'Mi piacerebbe ma devo andare a fare la spesa.',      status: 'sent',           star: false }
+                        {   date: '20/03/2023 16:30:00',            message: 'Ricordati di chiamare la nonna, ringraziala.',       status: 'received',       star: false },
+                        {   date: '20/03/2023 16:30:55',            message: 'Va bene, tra poco la sento!',                        status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Samuele',
                     avatar: './assets/img/avatar_3.jpg',
                     visible: true,
                     messages: [
-                        {   date: '28/03/2020 10:10:40',            message: 'La Marianna va in campagna',                         status: 'received',       star: false },
-                        {   date: '28/03/2020 10:20:10',            message: 'Sicuro di non aver sbagliato chat?',                 status: 'sent',           star: false },
-                        {   date: '28/03/2020 16:15:22',            message: 'Ah scusa!',                                          status: 'received',       star: false }
+                        {   date: '28/03/2023 10:10:40',            message: 'La Marianna va in campagna',                         status: 'received',       star: false },
+                        {   date: '28/03/2023 10:20:10',            message: 'Sicuro di non aver sbagliato chat?',                 status: 'sent',           star: false },
+                        {   date: '28/03/2023 16:15:22',            message: 'Ah scusa!',                                          status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Alessandro',
                     avatar: './assets/img/avatar_4.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Lo sai che ha aperto una nuova pizzeria?',           status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'Si, ma preferirei andare al cinema',                 status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Lo sai che ha aperto una nuova pizzeria?',           status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Si, ma preferirei andare al cinema',                 status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Luca',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Ricordati di chiamare la nonna',                     status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'Va bene, stasera la sento',                          status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Ciao come stai?',                                    status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Bene grazie! Stasera ci vediamo?',                   status: 'received',       star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Alle 21:30 sono da te 😘',                           status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Claudia',
                     avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Ciao Claudia, hai novità?',                          status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'Non ancora',                                         status: 'received',       star: false },
-                        {   date: '10/01/2020 15:51:00',            message: 'Nessuna nuova, buona nuova',                         status: 'sent',           star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Ciao Claudia, hai novità?',                          status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Non ancora',                                         status: 'received',       star: false },
+                        {   date: '10/01/2023 15:51:00',            message: 'Nessuna nuova, buona nuova',                         status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Federico',
                     avatar: './assets/img/avatar_7.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Fai gli auguri a Martina che è il suo compleanno!',  status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'Grazie per avermelo ricordato, le scrivo subito!',   status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Fai gli auguri a Martina che è il suo compleanno!',  status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Grazie per avermelo ricordato, le scrivo subito!',   status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Betta',
                     avatar: './assets/img/avatar_io.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received',       star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:51:00',            message: 'Ok Baby!!',                                          status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received',       star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:51:00',            message: 'Ok Baby!!',                                          status: 'received',       star: false }
                     ],
                 },
                 {   name: 'Mamma',
                     avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Ciao, andiamo a mangiare il sushi stasera?',         status: 'received',       star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'No, l\'ho già mangiato ieri, ordiniamo pizza!',      status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:51:00',            message: 'Ok Baby!!',                                          status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, che tempo fa lì? Qui diluvia!',                status: 'received',       star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Ciao mamma, qui invece c\'è nuvolo ma non piove.',   status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:51:00',            message: 'Ok, ti voglio bene. Dimmi se il tempo peggiora',     status: 'received',       star: true },
+                        {   date: '10/01/2023 16:01:55',            message: 'Anch\'io ti voglio bene 💛',                         status: 'sent',           star: false }
                     ],
                 },
                 {   name: 'Davide',
                     avatar: './assets/img/avatar_8.jpg',
                     visible: true,
                     messages: [
-                        {   date: '10/01/2020 15:30:55',            message: 'Ciao, andiamo a mangiare la pizza stasera?',         status: 'received',       star: false },
-                        {   date: '10/01/2020 15:50:00',            message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',      status: 'sent',           star: false },
-                        {   date: '10/01/2020 15:51:00',            message: 'OK!!',                                               status: 'received',       star: false }
+                        {   date: '10/01/2023 15:30:55',            message: 'Ciao, ci sei al compleanno di Stefy?',               status: 'received',       star: false },
+                        {   date: '10/01/2023 15:50:00',            message: 'Si, stiamo già organizzando il regalo! Partecipi?',  status: 'sent',           star: false },
+                        {   date: '10/01/2023 15:51:00',            message: 'Certo! Aggiungimi al gruppo',                        status: 'received',       star: false }
                     ],
                 }
             ]
