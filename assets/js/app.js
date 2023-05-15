@@ -48,8 +48,6 @@ createApp({
             msgMenuVisibility: null,
             // Current Chat Index
             currentChat: 0,
-            // Scroll Down Chat
-            scrollTop: "",
             // User Profile Object
             userProfile: {
                 name: 'Sonia',
@@ -217,8 +215,7 @@ createApp({
         },
         // Scroll down active chat 
         scrollChatDown() {
-            this.scrollTop += 500
-            setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.scrollTop), 300)
+            setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.$refs.chatMessagesSec.scrollHeight), 300)
         },
         // Delete a message inside active chat
         removeMessage(position) {
@@ -260,6 +257,7 @@ createApp({
                 return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(11,16)
             }
         },
+        // Return a string with last access date
         lastAccessDate() {
             return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,10)
         },
