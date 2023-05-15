@@ -82,8 +82,9 @@ input {
 
 /* Active Chat Section Style */
 #activeChatSec {
-    background-image: url(../img/mine.jpg);
     border-left: 1px solid var(--darkGreyTxt);
+    background-image: url(../img/mine.jpg);
+    background-color: var(--lightGrey); /* Added only to display a background on github preview */
 }
 
 .activeChat {
@@ -141,6 +142,7 @@ input {
     right: 0;
     padding: .5em .8em;
     z-index: 3;
+    min-width: 6.25rem;
 }
 
 .bubble {

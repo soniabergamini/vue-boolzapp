@@ -58,11 +58,11 @@
                                     <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                     <p>
                                         <span>{{friend.name}}</span>
-                                        <small class="txtGrey displayBlock marginTopBot">{{friend.messages[friend.messages.length-1].message}}</small>
+                                        <small v-show="friend.messages.length > 0" class="txtGrey displayBlock marginTopBot">{{friend.messages.length > 0 ? friend.messages[friend.messages.length-1].message : null}}</small>
                                     </p>
                                 </div>
                                 <div class="chatTime">
-                                    <small class="txtGrey">{{lastAccess(friend)}}</small>
+                                    <small v-show="friend.messages.length > 0" class="txtGrey">{{friend.messages.length > 0 ? lastAccess(friend) : null}}</small>
                                 </div>
                             </div>
                         </template>
@@ -76,8 +76,8 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{lastAccess()}}</small>
-                                <small :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
+                                <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}}</small>
+                                <small v-show="contacts[currentChat].messages.length > 0"  :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
                         </div>
                         <div>
@@ -89,10 +89,10 @@
                     <!-- Chat with messages -->
                     <div id="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
                         <template v-for="(mess, i) in contacts[currentChat].messages">
-                            <div class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
+                            <div v-show="contacts[currentChat].messages.length > 0" class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
-                                    <small class="displayBlock txtAlignRight txtGrey"><i :class="mess.star != true ? 'dNone' : null" class="fa-xs fa-solid fa-star"></i> {{messTime(mess)}}</small>
+                                    <small class="displayBlock txtAlignRight txtGrey"><i v-show="mess.star === true" class="fa-xs fa-solid fa-star"></i> {{messTime(mess)}}</small>
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
                                     <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="menuVisibility != i ? 'dNone' : null">
