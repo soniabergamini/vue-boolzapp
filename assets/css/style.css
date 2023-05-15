@@ -99,6 +99,7 @@ input {
 #chatMessagesSec {
     height: 80%;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 /* #chatMessagesSec span {

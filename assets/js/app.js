@@ -32,6 +32,8 @@ createApp({
             msgMenuVisibility: null,
             // Current Chat Index
             currentChat: 0,
+            // Scroll Down Chat
+            scrollTop: "",
             // User Profile Object
             userProfile: {
                 name: 'Sonia',
@@ -154,6 +156,7 @@ createApp({
                 // Send New Message and start automatic reply
                 this.newMessage.date = this.currentTime()
                 this.contacts[this.currentChat].messages.push({...this.newMessage})
+                this.scrollChatDown()
                 this.newMessage.message = ""
                 this.getAutoReply()
             } else {
@@ -174,11 +177,17 @@ createApp({
                 this.autoReply.date = this.currentTime(),
                 this.contacts[this.currentChat].messages.push({...this.autoReply}),
                 this.userStatusTxt = "Online"
+                this.scrollChatDown()
             }, 1 * 10000);
             setTimeout(() => {
                 this.userLastLogClass = "",
                 this.userStatusClass = "dNone"
             }, 1 * 13000)
+        },
+        // Scroll down active chat 
+        scrollChatDown() {
+            this.scrollTop += 2000
+            setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.scrollTop), 300)
         },
         // Delete a message inside active chat
         removeMessage(position) {
@@ -226,6 +235,7 @@ createApp({
         } 
     },
     mounted() {
-        console.log("Hello from VueJS 👋 Current Time: " + this.DateTime.now().toString().slice(11,16))
+        console.log("Hello from VueJS 👋 Current Time: " + this.DateTime.now().toString().slice(11,16)),
+        this.scrollChatDown()
     }
 }).mount('#app')

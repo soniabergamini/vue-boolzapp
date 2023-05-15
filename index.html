@@ -53,7 +53,7 @@
                     <!-- Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
                         <template v-for="(friend, i) in contacts">
-                            <div v-if="friend.visible === true" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
+                            <div v-show="friend.visible === true" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
                                 <div class="dFlex alignCtr gap1em">
                                     <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                     <p>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <!-- Chat with messages -->
-                    <div id="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
+                    <div id="chatMessagesSec" ref="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
                         <template v-for="(mess, i) in contacts[currentChat].messages">
                             <div v-show="contacts[currentChat].messages.length > 0" class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
