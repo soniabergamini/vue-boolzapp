@@ -260,6 +260,9 @@ createApp({
                 return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(11,16)
             }
         },
+        lastAccessDate() {
+            return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,10)
+        },
         // Return a string with message time
         messTime(element) {
             return element.date.slice(11,16)

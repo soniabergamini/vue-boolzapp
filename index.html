@@ -37,7 +37,8 @@
                             <form v-if="formNewChatVisibility" action="#" class="bgLightGrey posAbsolute borderRadius dFlex gap1em flexColumn wid60Perc" id="formNewChat">
                                 <div class="dFlex justyEnd">
                                     <h3 class="wid80Perc txtAlignCtr txtGrey">Nuova Chat</h3>
-                                    <button @click="formNewChatVisibility = false, this.newChat.name = '', this.newChat.gender = ''" type="reset" class="cPointer wid10Perc txtAlignRight"><i class="changeColTealHov fa-regular fa-circle-xmark fa-lg txtGrey"></i></button>
+                                    <button @click="formNewChatVisibility = false, this.newChat.name = '', this.newChat.gender = ''" class="cPointer wid10Perc txtAlignRight"><i class="txtGrey changeColTealHov fa-solid fa-lg fa-circle-xmark"></i>
+                                </button>
                                 </div>
                                 <input type="text" placeholder="Nome del contatto" v-model="newChat.name" class="txtGrey borderRadius marginTopBot pad05em border" required>
                                 <select id="formNewChatGender" v-model="newChat.gender" class="marginTopBot pad05em txtGrey borderRadius border" required>
@@ -92,7 +93,7 @@
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
-                                <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso oggi alle {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}}</small>
+                                <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso alle ore {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}} del {{contacts[currentChat].messages.length > 0 ? lastAccessDate() : null}}</small>
                                 <small v-show="contacts[currentChat].messages.length > 0"  :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
                         </div>

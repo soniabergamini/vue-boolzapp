@@ -83,10 +83,6 @@ input {
     align-self: center;
 }
 
-#formNewChat > button:first-child {
-    align-self: flex-end;
-}
-
 #ctaNotifSec > div:last-child {
     font-size: small;
 }
@@ -200,7 +196,7 @@ input {
 }
 
 #sendMessSec {
-    background-color: rgba(255, 255, 255, 0.612);
+    background-color: rgba(255, 255, 255, 0.782);
 }
 
 #sendMessSec input {
