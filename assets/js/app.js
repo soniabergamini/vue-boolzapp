@@ -1,9 +1,11 @@
-var DateTime = luxon.DateTime;
+// var DateTime = luxon.DateTime; // Alternative Luxon installation method 
 const { createApp } = Vue
 
 createApp({
     data() {
         return {
+            // Luxon Installation Data
+            DateTime: luxon.DateTime,
             // Search Bar Input
             newSearch: "",
             // User Status and Last Access Time
@@ -206,7 +208,7 @@ createApp({
         },
         // Return a string with current date and time
         currentTime() {
-            return DateTime.now().toString()
+            return this.DateTime.now().toString()
         },
         // Return a string with last access/message time
         lastAccess(element) {
@@ -224,6 +226,6 @@ createApp({
         } 
     },
     mounted() {
-        console.log("Hello from VueJS 👋 Current Time: " + DateTime.now().toString().slice(11,16))
+        console.log("Hello from VueJS 👋 Current Time: " + this.DateTime.now().toString().slice(11,16))
     }
 }).mount('#app')
