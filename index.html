@@ -17,25 +17,37 @@
     <title>Boolzapp</title>
 </head>
 <body>
+
     <!-- Vue JS App -->
     <div id="app">
+
         <!-- Page Overlay -->
         <div v-if="formNewChatVisibility" id="overlay" class="vw100 vh100"></div>
+
         <!-- Boolzap Main Container -->
         <main class="dFlex alignCtr justyCtr vh100">
             <section class="container dFlex wid100Perc posRelative pad1rem">
-                <!-- All Chat Section -->
+
+                <!-- LEFT SECTION: ALL CHAT -->
                 <div id="allChatSec" :class="hideAllChatMob" class="dFlex flexColumn">
-                    <!-- User profile and icons -->
+
+                    <!-- Section: User profile and icons -->
                     <div id="userProfileSec" class="bgGrey dFlex spaceBtw alignCtr pad05em">
+
+                        <!-- User Profile Info -->
                         <div class="dFlex alignCtr gap1em">
                             <img :src="userProfile.avatar" width="45" :alt="userProfile.name" class="borderRadius50">
                             <span>{{userProfile.name}}</span>
                         </div>
+
+                        <!-- Main Icon Buttons -->
                         <div>
+                            <!-- Boolzap Status Button -->
                             <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-circle-notch txtGrey"></i></button>
+
                             <!-- Add New Chat button -->
                             <button @click="formNewChatVisibility = true" class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-message txtGrey"></i></button>
+
                             <!-- Add New Chat Form -->
                             <form v-if="formNewChatVisibility" action="#" class="bgLightGrey posAbsolute borderRadius dFlex gap1em flexColumn wid60Perc" id="formNewChat">
                                 <div class="dFlex justyEnd">
@@ -51,10 +63,14 @@
                                 </select>
                                 <button @click="addNewChat()" class="marginTopBot wid80Perc bgTeal txtAlignCtr txtWhite cPointer borderRadius pad05em">Chatta</button>
                             </form>
+
+                            <!-- Boolzap Main Menu Button -->
                             <button class="marginLat05em"><i class="changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey"></i></button>
                         </div>
+
                     </div>
-                    <!-- CTA Boolzapp notifications -->
+
+                    <!-- Section: CTA Boolzapp notifications -->
                     <div id="ctaNotifSec" class="bgLightBlue dFlex alignCtr gap1em pad1rem">
                         <div class="bgWhite borderRadius50 pad05em">
                             <i class="fa-solid fa-bell-slash txtBlue fa-fw"></i>
@@ -64,13 +80,15 @@
                             <small><a href="#" class="txtUnderline txtGrey">Attiva notifiche desktop</a></small>
                         </div>
                     </div>
-                    <!-- Search Bar -->
+
+                    <!-- Section: Search Bar -->
                     <div id="searchBarSec" class="bgLightGrey dFlex alignCtr pad05em">
                         <form class="wid100Perc">
                           <input class="wid100Perc txtGrey borderRadius" type="search" placeholder="Cerca o inizia una nuova chat" v-model="newSearch" @keyUp="chatSearch">
                         </form>
                     </div>
-                    <!-- Single conversations -->
+
+                    <!-- Section: Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
                         <template v-for="(friend, i) in contacts">
                             <div v-show="friend.visible === true" @click="currentChat=i, hideActiveChatMob='', hideAllChatMob='dNoneMobile'" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
@@ -87,23 +105,36 @@
                             </div>
                         </template>
                     </div>
-                </div>    
-                <!-- Active Chat Section -->
+
+                </div>   
+
+                <!-- RIGHT SECTION: ACTIVE CHAT -->
                 <div id="activeChatSec" :class="hideActiveChatMob" class="fGrow1 dFlex flexColumn">
-                    <!-- Top Banner: Chat friend and buttons -->
+
+                    <!-- Section: Top Banner with friend info and buttons -->
                     <div id="topBannerActiveChat" class="bgGrey dFlex spaceBtw alignCtr pad05em">
-                         <div class="dFlex alignCtr gap1em">
+
+                        <!-- Active Chat Info -->
+                        <div class="dFlex alignCtr gap1em">
+
+                            <!-- Mobile Back Button  -->
                             <button @click="hideActiveChatMob='dNoneMobile', hideAllChatMob=''" class="dNone dBlockMobile"><i class="txtTeal fa-solid cPointer txtGrey fa-xl fa-arrow-left"></i></button>
+
+                            <!-- Friend Info -->
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
                                 <small v-show="contacts[currentChat].messages.length > 0" :class="userLastLogClass" class="txtGrey displayBlock marginTopBot">Ultimo accesso {{contacts[currentChat].messages.length > 0 ? lastAccessDate() : null}} alle {{contacts[currentChat].messages.length > 0 ? lastAccess() : null}}</small>
                                 <small v-show="contacts[currentChat].messages.length > 0"  :class="userStatusClass" class="txtGrey displayBlock marginTopBot">{{userStatusTxt}}</small>
                             </p>
+
                         </div>
+
+                        <!-- Chat Icons -->
                         <div class="posRelative">
                             <button id="btnMsgSearch" class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
                             <button id="btnAttached" class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
+
                             <!-- Chat Dropdown Menu -->
                             <button id="btnChatMenu" class="marginLat05em"><i class="pad05em changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
                             <div v-show="chatMenuVisibility" id="chatDropdown" class="bgGrey posAbsolute borderRadius">
@@ -112,15 +143,21 @@
                                     <li class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="deleteChat(), chatMenuVisibility = false"><i class="fa-solid fa-trash-can"></i> Elimina chat</li>
                                 </ul>
                             </div>
+
                         </div>
+
                     </div>
-                    <!-- Chat with messages -->
+
+                    <!-- Section: Chat with messages -->
                     <div id="chatMessagesSec" ref="chatMessagesSec" class="fGrow1 pad2rem dFlex flexColumn gap1em">
+
+                        <!-- Chat Messages -->
                         <template v-for="(mess, i) in contacts[currentChat].messages">
                             <div v-show="contacts[currentChat].messages.length > 0" class="dFlex" :class="mess.status === 'sent' ? 'msgSent' : 'msgReceived'">
                                 <div class="borderRadius05 posRelative" @mouseover="showBtnMenu(i)" @mouseleave="hideBtnMenu">
                                     <span>{{mess.message}}</span>
                                     <small class="displayBlock txtAlignRight txtGrey"><i v-show="mess.star === true" class="fa-xs fa-solid fa-star"></i> {{mess.date.slice(10,15)}}</small>
+
                                     <!-- Message Dropdown Menu -->
                                     <button :class="mess.status === 'sent' ? 'bgGreen' : 'bgWhite', currentMouseover != i ? 'dNone' : null" class="cPointer posAbsolute displayBlock txtAlignRight txtGrey" @click="showMenu(i)"><i class="changeColTealHov fa-lg fa-solid fa-chevron-down txtGrey"></i></button>
                                     <div id="msgDropdown" class="bgGrey posAbsolute borderRadius" :class="msgMenuVisibility != i ? 'dNone' : null">
@@ -131,36 +168,54 @@
                                             <li class="displayBlock cPointer marginTopBot changeColTealHov pad05em txtRed" @click="removeMessage(i)"><i class="fa-solid fa-trash-can"></i> Elimina</li>
                                         </ul>
                                     </div>
+
                                     <!-- Message Speech Bubbles -->
                                     <div :class="mess.status != 'sent' ? 'bubbleReceived' : null" class="bubble posAbsolute"></div>
+
                                 </div>
                             </div>
-                        </template>              
+                        </template>   
+
                     </div>
-                    <!-- Send new message -->
+
+                    <!-- Section: Send new message -->
                     <div id="sendMessSec" class="dFlex alignCtr spaceBtw pad05em">
+
+                        <!-- Emoji Button -->
                         <div>
                             <button class="marginLat1em" @click="showEmoji" ref="btnEMoji"><i class="changeColTealHov cPointer txtGrey fa-xl fa-regular fa-face-smile"></i></button>
                         </div>
+
+                        <!-- New Message Input -->
                         <div class="wid100Perc dFlex justyCtr">
                             <input :class="inputErrorClass" class="txtGrey borderRadius marginLat1em" type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
                         </div>
+
+                        <!-- Send Message/Audio Button -->
                         <div>
                             <button class="marginLat1em">
                                 <i v-show="newMessage.message === ''" class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-microphone"></i>
                                 <i v-show="newMessage.message != ''" @click="addMessage" class="fa-brands fa-telegram fa-2xl txtBlue changeColTealHov cPointer"></i>
                             </button>
                         </div>
+
                     </div>
-                </div>   
+
+                </div>  
+
             </section>  
         </main>
+
     </div>
+
     <!-- Script Luxon JS -->
     <script src="./assets/js/luxon.js"></script>
+
     <!-- Script Emoji JS -->
     <script src="./assets/js/emoji-button.min.js"></script>
+
     <!-- Script App JS -->
     <script src="./assets/js/app.js"></script>
+
 </body>
 </html>
