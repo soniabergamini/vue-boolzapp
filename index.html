@@ -11,6 +11,7 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/helpers.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <!-- Script Vue Js -->
     <script src="./assets/js/vue.3.2.47.js"></script>
     <title>Boolzapp</title>
@@ -24,7 +25,7 @@
         <main class="dFlex alignCtr justyCtr vh100">
             <section class="container dFlex wid100Perc posRelative pad1rem">
                 <!-- All Chat Section -->
-                <div id="allChatSec" class="dFlex flexColumn">
+                <div id="allChatSec" :class="hideAllChatMob" class="dFlex flexColumn">
                     <!-- User profile and icons -->
                     <div id="userProfileSec" class="bgGrey dFlex spaceBtw alignCtr pad05em">
                         <div class="dFlex alignCtr gap1em">
@@ -72,7 +73,7 @@
                     <!-- Single conversations -->
                     <div id="singleChatSec" class="bgWhite fGrow1">
                         <template v-for="(friend, i) in contacts">
-                            <div v-show="friend.visible === true" @click="currentChat=i" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
+                            <div v-show="friend.visible === true" @click="currentChat=i, hideActiveChatMob='', hideAllChatMob='dNoneMobile'" class="dFlex alignCtr spaceBtw pad05em borderBottom cPointer changeBackTealHov" :class="currentChat === i ? 'activeChat' : null">
                                 <div class="dFlex alignCtr gap1em">
                                     <img :src="friend.avatar" :alt="friend.name" width="45" class="borderRadius50">
                                     <p>
@@ -88,10 +89,11 @@
                     </div>
                 </div>    
                 <!-- Active Chat Section -->
-                <div id="activeChatSec" class="fGrow1 dFlex flexColumn">
+                <div id="activeChatSec" :class="hideActiveChatMob" class="fGrow1 dFlex flexColumn">
                     <!-- Top Banner: Chat friend and buttons -->
                     <div id="topBannerActiveChat" class="bgGrey dFlex spaceBtw alignCtr pad05em">
                          <div class="dFlex alignCtr gap1em">
+                            <button @click="hideActiveChatMob='dNoneMobile', hideAllChatMob=''" class="dNone dBlockMobile"><i class="txtTeal fa-solid cPointer txtGrey fa-xl fa-arrow-left"></i></button>
                             <img :src="contacts[currentChat].avatar" width="45" :alt="contacts[currentChat].name" class="borderRadius50">
                             <p>
                                 <span>{{contacts[currentChat].name}}</span>
@@ -100,10 +102,10 @@
                             </p>
                         </div>
                         <div class="posRelative">
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
-                            <button class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
+                            <button id="btnMsgSearch" class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-magnifying-glass"></i></button>
+                            <button id="btnAttached" class="marginLat05em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-solid fa-paperclip"></i></button>
                             <!-- Chat Dropdown Menu -->
-                            <button class="marginLat05em"><i class="pad05em changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
+                            <button id="btnChatMenu" class="marginLat05em"><i class="pad05em changeColTealHov cPointer fa-xl fa-solid fa-ellipsis-vertical txtGrey" @click="chatMenuVisibility = !chatMenuVisibility"></i></button>
                             <div v-show="chatMenuVisibility" id="chatDropdown" class="bgGrey posAbsolute borderRadius">
                                 <ul>
                                     <li v-show="contacts[currentChat].messages.length > 0" class="displayBlock marginTopBot changeColTealHov pad05em txtRed" @click="clearChat(), chatMenuVisibility = false"><i class="fa-regular fa-comments"></i> Elimina messaggi</li>

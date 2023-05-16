@@ -6,6 +6,9 @@ createApp({
         return {
             // Luxon Installation Data
             DateTime: luxon.DateTime,
+            // Mobile Class
+            hideActiveChatMob: "dNoneMobile",
+            hideAllChatMob: "",
             // Chat Search Bar
             newSearch: "",
             searchFalseResult: 0,

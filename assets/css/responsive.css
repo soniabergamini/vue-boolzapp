@@ -1,0 +1,108 @@
+/*********************************
+        DESKTOP FIRST
+*********************************/
+
+/*****************************************/
+/***** LAYOUT: ONLY TABLET "MD SIZE" *****/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    /* MAIN STYLE */
+    #topBannerActiveChat > div:first-child {
+        width: 70%;
+    }
+
+    #topBannerActiveChat > div:last-child {
+        width: 30%;
+    }
+
+    #btnChatMenu > i {
+        padding: 0;
+    }
+} 
+
+/****************************************/
+/***** LAYOUT: MOBILE "XXS, XS & S SIZE" *****/
+@media screen and (max-width: 768px) {
+
+    /* MAIN STYLE */
+    main {
+        width: 100%;
+        min-width: 200px;
+    }
+
+    main > section {
+        justify-content: center;
+    }
+
+    #allChatSec {
+        width: 80%;
+    }
+
+    .dBlockMobile {
+        display: block;
+    }
+
+    .dNoneMobile {
+        display: none;
+    }
+
+    .emoji-picker, .wrapper {
+        width: 70%;
+        font-size: 12px !important;
+    }
+}
+
+/***********************************************/
+/***** LAYOUT: ONLY MOBILE "XS SIZE" *****/
+@media screen and (max-width: 480px) {
+
+    /* MAIN STYLE */
+    #formNewChat {
+        width: 90%;
+    }
+
+    #searchBarSec input {
+        font-size: .75rem;
+    }
+
+    #activeChatSec i {
+        font-size: .9375rem;
+    }
+
+    #activeChatSec button {
+        margin: 0 .2em;
+    }
+
+    #topBannerActiveChat > div:first-child {
+        width: 80%;
+        gap: .3125rem;
+    }
+
+    #btnMsgSearch,
+    #btnAttached {
+        display: none;
+    }
+}
+
+/************************************************/
+/***** LAYOUT: ONLY MOBILE "XXS SIZE" *****/
+@media screen and (max-width: 300px) {
+
+    /* MAIN STYLE */
+    #activeChatSec i {
+        font-size: .75rem;
+    }
+
+    #topBannerActiveChat {
+        font-size: .875rem;
+    }
+
+    #sendMessSec input {
+        padding: .2em .5em;
+    }
+
+    .emoji-picker, .wrapper {
+        width: 50%;
+        font-size: 10px !important;
+    }
+}

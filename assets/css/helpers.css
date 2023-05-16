@@ -32,6 +32,7 @@
 .txtWhite       {color: white;}
 .txtGrey        {color: var(--darkGreyTxt);}
 .txtBlue        {color: var(--lightBlue);}
+.txtTeal        {color: var(--teal);}
 .txtBlack       {color: black;}
 .txtRed         {color: red;}
 .txtSmall       {font-size: small;}
