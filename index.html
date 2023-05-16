@@ -138,7 +138,7 @@
                     <!-- Send new message -->
                     <div id="sendMessSec" class="dFlex alignCtr spaceBtw pad05em">
                         <div>
-                            <button class="marginLat1em"><i class="changeColTealHov cPointer txtGrey fa-xl fa-regular fa-face-smile"></i></button>
+                            <button class="marginLat1em" @click="showEmoji" ref="btnEMoji"><i class="changeColTealHov cPointer txtGrey fa-xl fa-regular fa-face-smile"></i></button>
                         </div>
                         <div class="wid100Perc dFlex justyCtr">
                             <input :class="inputErrorClass" class="txtGrey borderRadius marginLat1em" type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
@@ -156,6 +156,8 @@
     </div>
     <!-- Script Luxon JS -->
     <script src="./assets/js/luxon.js"></script>
+    <!-- Script Emoji -->
+    <script src="./assets/js/emoji-button.min.js"></script>
     <!-- Script App JS -->
     <script src="./assets/js/app.js"></script>
 </body>

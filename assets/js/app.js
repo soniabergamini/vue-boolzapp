@@ -162,17 +162,17 @@ createApp({
                 this.newChat.name = this.newChat.name.charAt(0).toUpperCase() + this.newChat.name.slice(1);
                 this.contacts.unshift({...this.newChat});
                 this.formNewChatVisibility = false;
-                this.newChat.name = '',
-                this.newChat.messages = [],
-                this.newChat.gender = ''
+                this.newChat.name = '';
+                this.newChat.messages = [];
+                this.newChat.gender = '';
             }
         },
         // Compare the search bar input with the Contacts list and returns only matches
         chatSearch() {
             this.contacts.forEach((element) => {
-                element.visible = true
+                element.visible = true;
                 if (!element.name.toLowerCase().includes(this.newSearch.toLowerCase())) {
-                    element.visible = false
+                    element.visible = false;
                 }
             })
         },
@@ -180,15 +180,15 @@ createApp({
         addMessage() {
             if (this.newMessage.message.length > 0 && this.newMessage.message.trim()) {
                 // Send New Message and start automatic reply
-                this.newMessage.date = this.currentTime()
-                this.contacts[this.currentChat].messages.push({...this.newMessage})
-                let currentChatReply = this.currentChat
-                this.scrollChatDown()
-                this.newMessage.message = ""
-                this.getAutoReply(currentChatReply)
+                this.newMessage.date = this.currentTime();
+                this.contacts[this.currentChat].messages.push({...this.newMessage});
+                let currentChatReply = this.currentChat;
+                this.scrollChatDown();
+                this.newMessage.message = "";
+                this.getAutoReply(currentChatReply);
             } else {
                 // Error input for new message
-                this.inputErrorClass = "inputError",
+                this.inputErrorClass = "inputError";
                 setTimeout(() => this.inputErrorClass = "", 600);
             }
         },
@@ -197,24 +197,22 @@ createApp({
             this.userLastLogClass = "dNone",
             this.userStatusTxt = "Online",
             this.userStatusClass = "",
+            setTimeout(() => this.userStatusTxt = "Sta scrivendo...", 1 * 5000);
             setTimeout(() => {
-                this.userStatusTxt = "Sta scrivendo..."
-            }, 1 * 5000);
-            setTimeout(() => {
-                let randomReply = Math.floor(Math.random() * (9 - 0 + 1) + 0 )
-                this.autoReply[randomReply].date = this.currentTime(),
-                this.contacts[chat].messages.push({...this.autoReply[randomReply]}),
-                this.userStatusTxt = "Online"
-                this.scrollChatDown()
+                let randomReply = Math.floor(Math.random() * (9 - 0 + 1) + 0 );
+                this.autoReply[randomReply].date = this.currentTime();
+                this.contacts[chat].messages.push({...this.autoReply[randomReply]});
+                this.userStatusTxt = "Online";
+                this.scrollChatDown();
             }, 1 * 10000);
             setTimeout(() => {
-                this.userLastLogClass = "",
-                this.userStatusClass = "dNone"
-            }, 1 * 13000)
+                this.userLastLogClass = "";
+                this.userStatusClass = "dNone";
+            }, 1 * 13000);
         },
         // Scroll down active chat 
         scrollChatDown() {
-            setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.$refs.chatMessagesSec.scrollHeight), 300)
+            setTimeout(() => this.$refs.chatMessagesSec.scrollTo(0, this.$refs.chatMessagesSec.scrollHeight), 300);
         },
         // Delete a message inside active chat
         removeMessage(position) {
@@ -223,7 +221,7 @@ createApp({
         },
         // Copy text message to clipboard
         copyText(text) {
-            navigator.clipboard.writeText(text);
+            navigator.clipboard.writeText(text)
         },
         // Clear all chat messages inside active chat
         clearChat() {
@@ -243,35 +241,41 @@ createApp({
         },
         // Show/hide Message Dropdown Menu
         showMenu(i) {
-            this.msgMenuVisibility != null ? this.msgMenuVisibility = null : this.msgMenuVisibility = i,
+            this.msgMenuVisibility != null ? this.msgMenuVisibility = null : this.msgMenuVisibility = i;
             setTimeout(() => this.msgMenuVisibility = null, 1 * 9000);
         },
         // Return a string with current date and time
         currentTime() {
             // return this.DateTime.now().toString(),
-            let dateShort = this.DateTime.now().toLocaleString(this.DateTime.DATE_SHORT)
-            let timeSec = this.DateTime.now().toLocaleString(this.DateTime.TIME_WITH_SECONDS)
-            let date = `${dateShort} ${timeSec}`
+            let dateShort = this.DateTime.now().toLocaleString(this.DateTime.DATE_SHORT);
+            let timeSec = this.DateTime.now().toLocaleString(this.DateTime.TIME_WITH_SECONDS);
+            let date = `${dateShort} ${timeSec}`;
             return date
         },
         // Return a string with last access/message time
         lastAccess(element) {
             if (element != undefined) {
                 // Last message time
-                return element.messages[element.messages.length-1].date.slice(10,15)
+                return element.messages[element.messages.length-1].date.slice(10,15);
             } else {
                 // Last access time
-                return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(10,15)
+                return this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(10,15);
             }
         },
         // Return a string with last access date
         lastAccessDate() {
-            let lastAccessDate = this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,9)
+            let lastAccessDate = this.contacts[this.currentChat].messages[this.contacts[this.currentChat].messages.length-1].date.slice(0,9);
             if (lastAccessDate == this.DateTime.now().toLocaleString(this.DateTime.DATE_SHORT)) {
-                return "oggi"
+                return "oggi";
             } else {
-                return lastAccessDate
+                return lastAccessDate;
             }
+        },
+        // Show and print Emoji
+        showEmoji() {
+            const picker = new EmojiButton();
+            picker.togglePicker(this.$refs.btnEMoji);
+            picker.on('emoji', emoji => this.newMessage.message += emoji);
         }
     },
     mounted() {
