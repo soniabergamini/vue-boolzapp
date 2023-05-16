@@ -6,8 +6,9 @@ createApp({
         return {
             // Luxon Installation Data
             DateTime: luxon.DateTime,
-            // Search Bar Input
+            // Chat Search Bar
             newSearch: "",
+            searchFalseResult: 0,
             // User Status and Last Access Time
             userLastLogClass: "",
             userStatusClass: "dNone",
@@ -167,14 +168,21 @@ createApp({
                 this.newChat.gender = '';
             }
         },
-        // Compare the search bar input with the Contacts list and returns only matches
+        // Compare the search bar input with the Contacts list and returns only matches. If no matches, open new chat form
         chatSearch() {
             this.contacts.forEach((element) => {
                 element.visible = true;
                 if (!element.name.toLowerCase().includes(this.newSearch.toLowerCase())) {
                     element.visible = false;
+                    this.searchFalseResult++;
                 }
             })
+            // If there's no matches, open new chat form
+            if (this.searchFalseResult >= this.contacts.length) {
+                this.newChat.name = this.newSearch;
+                this.formNewChatVisibility = true;
+            }
+            this.searchFalseResult = 0       
         },
         // Add new message inside active chat
         addMessage() {
