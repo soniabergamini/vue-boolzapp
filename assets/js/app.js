@@ -240,7 +240,8 @@ createApp({
         },
         // Delete the entire active chat and all related contact data, from Contacts list
         deleteChat() {
-            this.contacts.splice(this.currentChat, 1)
+            this.contacts.splice(this.currentChat, 1),
+            this.currentChat > this.contacts.length - 1 ? this.currentChat-- : null
         },
         // Show Message Dropdown Menu button
         showBtnMenu(i) {
